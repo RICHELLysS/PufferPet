@@ -2,16 +2,16 @@
 
 ## Introduction
 
-本功能旨在为 PufferPet 桌面宠物应用实现真正的复古扫雷风格UI界面，并在夜晚模式（Kiroween主题）下让宠物变成恐怖形态。设计语言基于Windows 95/扫雷游戏的经典3D凸起/凹陷效果，夜晚模式下宠物将呈现幽灵/恐怖外观，符合Kiroween万圣节主题。
+This feature aims to implement a true retro Minesweeper-style UI interface for the PufferPet desktop pet application, and transform pets into horror forms during night mode (Kiroween theme). The design language is based on the classic Windows 95/Minesweeper 3D raised/sunken effects. In night mode, pets will display ghost/horror appearances, matching the Kiroween Halloween theme.
 
 ## Glossary
 
-- **Minesweeper Style (扫雷风格)**: Windows 95经典UI风格，特点是3D凸起按钮、凹陷面板、灰色调配色
-- **3D Raised Effect (3D凸起效果)**: 按钮左上边框为白色高光，右下边框为深灰阴影，产生立体感
-- **3D Sunken Effect (3D凹陷效果)**: 与凸起相反，用于输入框和面板，产生凹陷感
-- **Kiroween Mode (Kiroween模式)**: 夜晚/万圣节恐怖主题，宠物变成幽灵形态
-- **Ghost Pet (幽灵宠物)**: Kiroween模式下的宠物外观，带有幽灵绿/紫色光晕和透明效果
-- **theme_mode**: 主题模式标识，"normal"为日间扫雷风格，"halloween"为Kiroween恐怖风格
+- **Minesweeper Style**: Classic Windows 95 UI style, characterized by 3D raised buttons, sunken panels, gray color scheme
+- **3D Raised Effect**: Button with white highlight on top-left border and dark gray shadow on bottom-right border, creating depth
+- **3D Sunken Effect**: Opposite of raised, used for input fields and panels, creating recessed appearance
+- **Kiroween Mode**: Night/Halloween horror theme, pets transform into ghost forms
+- **Ghost Pet**: Pet appearance in Kiroween mode, with ghost green/purple glow and transparency effects
+- **theme_mode**: Theme mode identifier, "normal" for daytime Minesweeper style, "halloween" for Kiroween horror style
 
 ## Requirements
 
@@ -99,4 +99,3 @@
 1. WHEN gacha animation plays in normal mode THEN the interface SHALL use gray Minesweeper style with 3D box effect
 2. WHEN gacha animation plays in halloween mode THEN the interface SHALL use dark spooky colors with glowing effects
 3. WHEN the mystery box is displayed THEN the box SHALL have 3D raised effect matching current theme
-

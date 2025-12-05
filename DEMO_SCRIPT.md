@@ -1,184 +1,184 @@
-# 🎃 PufferPet Kiroween Hackathon 演示脚本
+# 🎃 PufferPet Kiroween Hackathon Demo Script
 
-> *"欢迎来到深海亡灵帝国..."* — 深海代码船长 🦑
+> *"Welcome to the Deep Sea Undead Empire..."* — Deep Sea Code Captain 🦑
 
-## 演示概述
+## Demo Overview
 
-**时长**: 5-10 分钟
-**目标**: 展示 Kiro 原生功能（Steering、Agent Hooks）和万圣节创意特性
+**Duration**: 5-10 minutes
+**Goal**: Showcase Kiro native features (Steering, Agent Hooks) and Halloween creative features
 
 ---
 
-## 🎬 演示流程
+## 🎬 Demo Flow
 
-### 第一幕：深海启航（1-2分钟）
+### Act 1: Setting Sail into the Deep (1-2 minutes)
 
-#### 1.1 项目介绍
+#### 1.1 Project Introduction
 
 ```
-"PufferPet 是一个桌面宠物应用，让可爱的海洋生物陪伴你的工作。
-V4 版本为 Kiroween Hackathon 打造，融入了深海亡灵帝国的万圣节主题。"
+"PufferPet is a desktop pet application where cute marine creatures accompany your work.
+V4 is built for Kiroween Hackathon, incorporating the Deep Sea Undead Empire Halloween theme."
 ```
 
-#### 1.2 启动应用
+#### 1.2 Launch Application
 
 ```bash
 python main.py
 ```
 
-**展示要点**:
-- 🎃 万圣节暗黑主题自动应用
-- 👻 宠物的幽灵滤镜效果
-- 🌑 深紫黑色背景 + 幽灵绿文字
+**Key Points**:
+- 🎃 Halloween dark theme auto-applies
+- 👻 Pet ghost filter effect
+- 🌑 Deep purple-black background + ghost green text
 
 ---
 
-### 第二幕：Kiro Steering 展示（2-3分钟）
+### Act 2: Kiro Steering Showcase (2-3 minutes)
 
-#### 2.1 打开 Steering 文件
+#### 2.1 Open Steering File
 
 ```
-文件位置: .kiro/steering.md
+File location: .kiro/steering.md
 ```
 
-**展示要点**:
-- 🦑 深海代码船长角色定义
-- 📜 防御性编程规则
-- 💀 戏剧性注释风格
+**Key Points**:
+- 🦑 Deep Sea Code Captain role definition
+- 📜 Defensive programming rules
+- 💀 Dramatic comment style
 
-#### 2.2 代码风格示例
+#### 2.2 Code Style Examples
 
-打开 `theme_manager.py` 或 `ignore_tracker.py`，展示：
+Open `theme_manager.py` or `ignore_tracker.py`, show:
 
 ```python
-# ⚠️ WARNING: 此处潜伏着数据腐化的诅咒...
-# 任何试图绕过此验证的灵魂都将被深渊吞噬
+# ⚠️ WARNING: Data corruption curse lurks here...
+# Any soul attempting to bypass this validation will be swallowed by the abyss
 ```
 
 ```python
 def summon_leviathan(pet_id: str) -> bool:
     """
-    🐋 从深渊中召唤一只巨兽到屏幕上。
+    🐋 Summon a leviathan from the abyss to the screen.
     
-    此仪式将唤醒沉睡在库存深处的生物，
-    使其显现于凡人的桌面之上。
+    This ritual awakens creatures sleeping deep in inventory,
+    making them manifest on mortal desktops.
     """
 ```
 
-#### 2.3 错误处理风格
+#### 2.3 Error Handling Style
 
 ```python
 raise ValueError(
-    "🦑 深渊拒绝了你的祭品！"
-    f"期望的宠物ID应在 {valid_ids} 之中..."
+    "🦑 The abyss rejected your offering!"
+    f"Expected pet ID should be among {valid_ids}..."
 )
 ```
 
 ---
 
-### 第三幕：Agent Hooks 概念（1-2分钟）
+### Act 3: Agent Hooks Concept (1-2 minutes)
 
-#### 3.1 打开 Hook 示例
-
-```
-文件位置: .kiro/hooks/pre-commit-example.md
-```
-
-**展示要点**:
-- 🪝 Hook 触发条件（文件保存）
-- 🦑 TODO 检测逻辑
-- 😡 与桌面宠物的集成概念
-
-#### 3.2 Hook 行为说明
+#### 3.1 Open Hook Example
 
 ```
-"当检测到代码中的 TODO 注释时，
-桌面宠物会根据数量显示不同级别的警告：
-
-1-2 个: 🐚 海风中传来低语...
-3-5 个: 🦑 深渊开始躁动...
-6-10 个: 🐙 海怪苏醒了！
-10+ 个: 🌊 触发捣蛋模式！"
+File location: .kiro/hooks/pre-commit-example.md
 ```
 
----
+**Key Points**:
+- 🪝 Hook trigger conditions (file save)
+- 🦑 TODO detection logic
+- 😡 Integration concept with desktop pets
 
-### 第四幕：万圣节主题系统（1-2分钟）
-
-#### 4.1 主题效果展示
-
-**展示要点**:
-- 🎃 暗黑主题 UI（右键菜单、任务窗口）
-- 👻 幽灵滤镜效果（透明度 + 光晕）
-- 🌑 黑底绿字橙边框风格
-
-#### 4.2 图像加载优先级
+#### 3.2 Hook Behavior Description
 
 ```
-万圣节模式下：
-1. 尝试加载 halloween_idle.png
-2. 回退到普通图像 + 幽灵滤镜
-3. 最后使用占位符
+"When TODO comments are detected in code,
+desktop pets display different warning levels based on count:
+
+1-2: 🐚 Whispers in the sea breeze...
+3-5: 🦑 The abyss begins to stir...
+6-10: 🐙 The sea monster awakens!
+10+: 🌊 Triggers mischief mode!"
 ```
 
 ---
 
-### 第五幕：捣蛋机制（1-2分钟）
+### Act 4: Halloween Theme System (1-2 minutes)
 
-#### 5.1 机制说明
+#### 4.1 Theme Effect Showcase
+
+**Key Points**:
+- 🎃 Dark theme UI (right-click menu, task window)
+- 👻 Ghost filter effect (opacity + glow)
+- 🌑 Black background, green text, orange border style
+
+#### 4.2 Image Loading Priority
 
 ```
-"如果你忽视宠物超过1小时，
-它们会进入愤怒状态，开始疯狂抖动！
-这就是'不给糖就捣蛋'机制。"
+In Halloween mode:
+1. Try to load halloween_idle.png
+2. Fall back to normal image + ghost filter
+3. Finally use placeholder
 ```
 
-#### 5.2 演示愤怒状态
+---
 
-**方法一**: 等待1小时（不推荐）
+### Act 5: Mischief Mechanism (1-2 minutes)
 
-**方法二**: 临时修改代码演示
+#### 5.1 Mechanism Description
+
+```
+"If you ignore pets for over 1 hour,
+they enter angry state and start shaking wildly!
+This is the 'Trick or Treat' mechanism."
+```
+
+#### 5.2 Demo Angry State
+
+**Method 1**: Wait 1 hour (not recommended)
+
+**Method 2**: Temporarily modify code for demo
 ```python
-# 在 ignore_tracker.py 中临时修改
-self.ignore_threshold = 10  # 改为10秒用于演示
+# Temporarily modify in ignore_tracker.py
+self.ignore_threshold = 10  # Change to 10 seconds for demo
 ```
 
-**展示要点**:
-- 😡 宠物进入愤怒状态
-- 🔄 抖动动画效果
-- 👆 点击安抚宠物
-- 📢 "不给糖就捣蛋！"通知
+**Key Points**:
+- 😡 Pet enters angry state
+- 🔄 Shaking animation effect
+- 👆 Click to soothe pet
+- 📢 "Trick or Treat!" notification
 
 ---
 
-### 第六幕：完整生态系统（1-2分钟）
+### Act 6: Complete Ecosystem (1-2 minutes)
 
-#### 6.1 任务奖励系统
+#### 6.1 Task Reward System
 
 ```
-"每完成12个任务，触发奖励判定：
-- 70% 概率获得 Tier 2 稀有宠物
-- 30% 概率获得深海盲盒"
+"Every 12 tasks completed triggers reward judgment:
+- 70% probability to get Tier 2 rare pet
+- 30% probability to get deep sea blind box"
 ```
 
-#### 6.2 库存管理
+#### 6.2 Inventory Management
 
-- 打开宠物管理窗口
-- 展示召唤/潜水功能
-- 展示库存状态（X/20, X/5）
+- Open pet management window
+- Show summon/dive functions
+- Show inventory status (X/20, X/5)
 
-#### 6.3 多宠物显示
+#### 6.3 Multi-Pet Display
 
-- 同时显示多只宠物
-- 展示 Tier 3 巨兽的缩放效果
+- Display multiple pets simultaneously
+- Show Tier 3 leviathan scaling effect
 
 ---
 
-## 📊 演示数据准备
+## 📊 Demo Data Preparation
 
-### 预设数据文件
+### Preset Data File
 
-创建 `demo_data.json` 用于演示：
+Create `demo_data.json` for demo:
 
 ```json
 {
@@ -215,107 +215,107 @@ self.ignore_threshold = 10  # 改为10秒用于演示
 }
 ```
 
-### 使用演示数据
+### Using Demo Data
 
 ```bash
-# 备份当前数据
+# Backup current data
 cp data.json data.json.backup
 
-# 使用演示数据
+# Use demo data
 cp demo_data.json data.json
 
-# 启动应用
+# Launch app
 python main.py
 
-# 演示结束后恢复
+# Restore after demo
 cp data.json.backup data.json
 ```
 
 ---
 
-## 🎯 关键演示场景
+## 🎯 Key Demo Scenarios
 
-### 场景1：展示 Steering 风格代码
+### Scenario 1: Show Steering Style Code
 
 ```python
-# 打开 theme_manager.py，展示以下代码：
+# Open theme_manager.py, show this code:
 
 class ThemeManager:
     """
-    🎃 万圣节主题管理器 - 深海亡灵帝国的视觉诅咒。
+    🎃 Halloween Theme Manager - Visual curse of the Deep Sea Undead Empire.
     
-    此模块掌管着所有视觉效果的命运：
-    - 主题切换：在光明与黑暗之间穿梭
-    - 幽灵滤镜：为生物披上亡灵的外衣
-    - 暗黑样式：让UI沉入深渊的怀抱
+    This module controls the fate of all visual effects:
+    - Theme switching: Travel between light and darkness
+    - Ghost filter: Dress creatures in undead garments
+    - Dark style: Let UI sink into the embrace of the abyss
     
-    ⚠️ 警告：不当使用可能导致视觉诅咒蔓延...
+    ⚠️ Warning: Improper use may cause visual curses to spread...
     """
 ```
 
-### 场景2：展示错误处理
+### Scenario 2: Show Error Handling
 
 ```python
-# 触发一个错误，展示戏剧性的错误消息
-# 例如尝试加载不存在的宠物
+# Trigger an error, show dramatic error message
+# e.g., try to load non-existent pet
 
-# 预期输出：
-# 🦑 深渊拒绝了你的祭品！
-# 期望的宠物ID应在 [...] 之中...
+# Expected output:
+# 🦑 The abyss rejected your offering!
+# Expected pet ID should be among [...]...
 ```
 
-### 场景3：展示捣蛋模式
+### Scenario 3: Show Mischief Mode
 
 ```python
-# 临时修改 ignore_tracker.py 用于演示
-# 将 ignore_threshold 改为 10 秒
+# Temporarily modify ignore_tracker.py for demo
+# Change ignore_threshold to 10 seconds
 
-# 等待10秒后：
-# - 所有宠物开始抖动
-# - 显示"不给糖就捣蛋！"通知
-# - 点击宠物安抚
+# After 10 seconds:
+# - All pets start shaking
+# - Shows "Trick or Treat!" notification
+# - Click pet to soothe
 ```
 
 ---
 
-## 📝 演示话术模板
+## 📝 Demo Script Templates
 
-### 开场白
-
-```
-"大家好！今天我要展示的是 PufferPet V4 - 
-为 Kiroween Hackathon 打造的深海亡灵帝国版本。
-
-这个项目不仅是一个可爱的桌面宠物应用，
-更是 Kiro 原生功能的完美展示：
-- Steering 定义了深海代码船长的代码风格
-- Agent Hooks 展示了与桌面宠物集成的可能性
-- 万圣节主题和捣蛋机制增添了节日趣味"
-```
-
-### 结束语
+### Opening
 
 ```
-"感谢观看！PufferPet V4 展示了如何将 Kiro 的
-Steering 和 Agent Hooks 功能融入实际项目，
-同时通过万圣节主题和捣蛋机制增添创意和趣味。
+"Hello everyone! Today I'm presenting PufferPet V4 - 
+the Deep Sea Undead Empire edition built for Kiroween Hackathon.
 
-愿深渊的智慧指引你的代码，
-愿海神的祝福保护你的应用！
+This project is not just a cute desktop pet application,
+but a perfect showcase of Kiro native features:
+- Steering defines the Deep Sea Code Captain's code style
+- Agent Hooks demonstrates integration possibilities with desktop pets
+- Halloween theme and mischief mechanism add festive fun"
+```
 
-— 深海代码船长 🦑"
+### Closing
+
+```
+"Thank you for watching! PufferPet V4 demonstrates how to integrate
+Kiro's Steering and Agent Hooks features into real projects,
+while adding creativity and fun through Halloween theme and mischief mechanism.
+
+May the wisdom of the abyss guide your code,
+May the blessing of the sea god protect your application!
+
+— Deep Sea Code Captain 🦑"
 ```
 
 ---
 
-## ⚠️ 演示注意事项
+## ⚠️ Demo Notes
 
-1. **提前测试**: 确保所有功能正常工作
-2. **备份数据**: 演示前备份 data.json
-3. **网络环境**: 确保演示环境稳定
-4. **时间控制**: 每个部分控制在预定时间内
-5. **互动准备**: 准备好回答评委问题
+1. **Test in Advance**: Ensure all features work properly
+2. **Backup Data**: Backup data.json before demo
+3. **Network Environment**: Ensure stable demo environment
+4. **Time Control**: Keep each section within scheduled time
+5. **Interaction Prep**: Prepare to answer judge questions
 
 ---
 
-*"从深渊的最深处，我们编织代码的诅咒..."* 🦑🎃
+*"From the deepest depths of the abyss, we weave the curse of code..."* 🦑🎃

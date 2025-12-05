@@ -1,693 +1,650 @@
 # PufferPet 🐡🎃
 
-一个可爱的桌面宠物应用程序，通过完成每日任务来培养和进化你的宠物！
+A cute desktop pet application where you nurture and evolve your pets by completing daily tasks!
 
-> *"从深渊的最深处，我们编织代码的诅咒..."* — 深海代码船长 🦑
+> *"From the deepest depths of the abyss, we weave the curse of code..."* — Deep Sea Code Captain 🦑
 
-## 🌙 V5.5 版本新特性 - 动态昼夜循环 (Dynamic Day/Night Cycle)
+## 🌙 V5.5 New Features - Dynamic Day/Night Cycle
 
-**与现实时间同步的昼夜循环，让你的海洋世界更加生动！**
+**Day/night cycle synchronized with real time, making your ocean world more vivid!**
 
-- 🌅 **自动昼夜切换**: 根据系统时间自动切换白天/黑夜模式（06:00-18:00 白天，18:00-06:00 黑夜）
-- 🌙 **黑夜=万圣节**: 黑夜模式复用万圣节主题，享受幽灵滤镜和暗黑UI
-- ⚙️ **设置菜单**: 新增设置子菜单，可控制自动同步和手动切换
-- 💾 **偏好保存**: 昼夜设置自动保存，重启后保持你的偏好
-- 🔄 **平滑过渡**: 模式切换时所有视觉效果实时更新
-- 🎨 **智能回退**: 无需额外资源，黑夜背景自动应用滤镜
+- 🌅 **Auto Day/Night Switch**: Automatically switches between day/night mode based on system time (06:00-18:00 day, 18:00-06:00 night)
+- 🌙 **Night = Halloween**: Night mode reuses Halloween theme, enjoy ghost filters and dark UI
+- ⚙️ **Settings Menu**: New settings submenu to control auto sync and manual switching
+- 💾 **Preference Saving**: Day/night settings auto-save, preferences persist after restart
+- 🔄 **Smooth Transition**: All visual effects update in real-time when mode switches
+- 🎨 **Smart Fallback**: No extra resources needed, night background auto-applies filters
 
-## 🌊 V5 版本新特性 - 深潜与屏保 (Deep Dive & Screensaver)
+## 🌊 V5 New Features - Deep Dive & Screensaver
 
-**沉浸式海底体验，让你的桌面变成深海世界！**
+**Immersive underwater experience, turn your desktop into a deep sea world!**
 
-- 🌊 **深潜模式**: 全屏海底背景，覆盖桌面图标，打造沉浸式海洋环境
-- 🫧 **气泡粒子系统**: 随机上升的气泡动画，营造真实的水下氛围
-- 😴 **屏保功能**: 5分钟无操作自动激活，宠物聚拢到屏幕中央休息
-- 🎃 **万圣节联动**: 深潜模式支持万圣节主题，气泡变鬼火，背景变暗紫色
-- 🖱️ **智能唤醒**: 鼠标移动或键盘敲击立即退出屏保，宠物返回原位
-- 📋 **菜单控制**: 托盘图标右键菜单可手动开启/关闭深潜模式
+- 🌊 **Deep Dive Mode**: Full-screen underwater background, covers desktop icons, creates immersive ocean environment
+- 🫧 **Bubble Particle System**: Random rising bubble animations, creating realistic underwater atmosphere
+- 😴 **Screensaver Function**: Auto-activates after 5 minutes of inactivity, pets gather to screen center to rest
+- 🎃 **Halloween Integration**: Deep dive mode supports Halloween theme, bubbles become ghost flames, background turns dark purple
+- 🖱️ **Smart Wake**: Mouse movement or keyboard press immediately exits screensaver, pets return to original positions
+- 📋 **Menu Control**: Tray icon right-click menu can manually enable/disable deep dive mode
 
-## 🎃 V4 版本新特性 - Kiroween Hackathon 深海亡灵帝国
+## 🎃 V4 New Features - Kiroween Hackathon Deep Sea Undead Empire
 
-**为 Kiroween Hackathon 打造的万圣节特别版！**
+**Halloween special edition built for Kiroween Hackathon!**
 
-- 🎃 **万圣节主题系统**: 暗黑UI主题、幽灵滤镜、诅咒风格
-- 👻 **幽灵滤镜效果**: 没有万圣节图像的宠物会自动应用幽灵滤镜（透明度0.6 + 绿/紫光晕）
-- 😡 **捣蛋机制**: 忽视宠物超过1小时，它们会进入愤怒状态并开始抖动！
-- 🦑 **Kiro Steering**: 深海代码船长风格的代码注释和错误处理
-- 🪝 **Agent Hooks 概念**: 展示与桌面宠物集成的自动化工作流
-- 🌑 **暗黑主题**: 黑底、绿字、橙色边框的万圣节风格UI
+- 🎃 **Halloween Theme System**: Dark UI theme, ghost filters, curse style
+- 👻 **Ghost Filter Effect**: Pets without Halloween images auto-apply ghost filter (0.6 opacity + green/purple glow)
+- 😡 **Mischief Mechanism**: Ignore pets for over 1 hour, they enter angry state and start shaking!
+- 🦑 **Kiro Steering**: Deep Sea Code Captain style code comments and error handling
+- 🪝 **Agent Hooks Concept**: Demonstrates automated workflow integration with desktop pets
+- 🌑 **Dark Theme**: Black background, green text, orange border Halloween style UI
 
-## ✨ V3.5 版本新特性 - 深海盲盒与生态平衡
+## ✨ V3.5 New Features - Deep Sea Blind Box & Ecosystem Balance
 
-- 🎁 **任务奖励系统**: 每完成12个任务获得奖励（70% Tier 2宠物 / 30% 深海盲盒）
-- 🐋 **深海巨兽**: 6种传说级Tier 3生物，通过盲盒获得（水滴鱼、鳐鱼、白鲸、虎鲸、鲨鱼、蓝鲸）
-- 📦 **库存管理**: 最多拥有20只宠物，最多同时显示5只
-- 🌊 **多宠物显示**: 同时在屏幕上显示多只宠物，打造你的海洋世界
-- 🎯 **宠物管理**: 召唤、潜水、放生功能，灵活管理你的收藏
-- 📏 **智能缩放**: Tier 3巨兽根据体型自动缩放（1.5x - 5.0x）
+- 🎁 **Task Reward System**: Every 12 tasks completed earns a reward (70% Tier 2 pet / 30% Deep Sea Blind Box)
+- 🐋 **Deep Sea Leviathans**: 6 legendary Tier 3 creatures, obtained through blind boxes (Blobfish, Ray, Beluga, Orca, Shark, Blue Whale)
+- 📦 **Inventory Management**: Own up to 20 pets, display up to 5 simultaneously
+- 🌊 **Multi-Pet Display**: Show multiple pets on screen at once, create your ocean world
+- 🎯 **Pet Management**: Summon, dive, release functions for flexible collection management
+- 📏 **Smart Scaling**: Tier 3 leviathans auto-scale based on size (1.5x - 5.0x)
 
-## ✨ V3 版本特性 - 浅海扩容与奇遇系统
+## ✨ V3 Features - Shallow Sea Expansion & Encounter System
 
-- 🌊 **8种海洋生物**: 收集河豚、水母、海星、螃蟹、章鱼、带鱼、翻车鱼、灯笼鱼
-- 🎯 **双层级系统**: Tier 1基础宠物（默认可解锁）+ Tier 2稀有宠物（奇遇捕获）
-- ✨ **奇遇系统**: 稀有生物会随机出现在屏幕上，点击即可捕获
-- 🎣 **捕获机制**: 培养任意Tier 1宠物到等级3，即可触发奇遇事件
-- 🏃 **动态访客**: 稀有生物会从屏幕左侧游到右侧，限时捕获增加趣味性
-- 📦 **自动迁移**: 从V2版本无缝升级，数据自动迁移
+- 🌊 **8 Marine Creatures**: Collect Puffer, Jelly, Starfish, Crab, Octopus, Ribbon, Sunfish, Angler
+- 🎯 **Two-Tier System**: Tier 1 basic pets (default unlockable) + Tier 2 rare pets (encounter capture)
+- ✨ **Encounter System**: Rare creatures randomly appear on screen, click to capture
+- 🎣 **Capture Mechanism**: Raise any Tier 1 pet to level 3 to trigger encounter events
+- 🏃 **Dynamic Visitors**: Rare creatures swim from left to right side of screen, limited-time capture adds fun
+- 📦 **Auto Migration**: Seamless upgrade from V2, data auto-migrates
 
-## ✨ V2 版本特性
+## ✨ V2 Features
 
-- 🎭 **多宠物系统**: 收集和切换不同的宠物
-- 🔓 **解锁机制**: 通过培养宠物解锁新伙伴
-- 🔄 **独立进度**: 每个宠物都有自己的成长进度
+- 🎭 **Multi-Pet System**: Collect and switch between different pets
+- 🔓 **Unlock Mechanism**: Unlock new companions by raising pets
+- 🔄 **Independent Progress**: Each pet has its own growth progress
 
-## 功能特点
+## Features
 
-- 🎨 **透明桌面宠物**: 宠物以透明背景显示在桌面上，始终置顶
-- 📈 **成长系统**: 完成每日任务让宠物进化（3个成长阶段）
-- ✅ **每日任务**: 三个简单的健康任务帮助你保持良好习惯
-- 💾 **自动保存**: 进度自动保存，每天自动重置任务
-- 🎯 **简洁界面**: 右键点击宠物即可查看和管理任务
-- 🐙 **宠物收集**: 解锁并切换不同的宠物类型
-- 🎁 **任务奖励**: 累计完成任务获得稀有宠物和深海盲盒
-- 🏠 **库存管理**: 管理你的宠物收藏，召唤和放生宠物
+- 🎨 **Transparent Desktop Pet**: Pet displays on desktop with transparent background, always on top
+- 📈 **Growth System**: Complete daily tasks to evolve your pet (3 growth stages)
+- ✅ **Daily Tasks**: Three simple health tasks help you maintain good habits
+- 💾 **Auto Save**: Progress auto-saves, tasks auto-reset daily
+- 🎯 **Simple Interface**: Right-click pet to view and manage tasks
+- 🐙 **Pet Collection**: Unlock and switch between different pet types
+- 🎁 **Task Rewards**: Accumulate completed tasks to earn rare pets and deep sea blind boxes
+- 🏠 **Inventory Management**: Manage your pet collection, summon and release pets
 
-## 系统要求
+## System Requirements
 
-- Python 3.8 或更高版本
+- Python 3.8 or higher
 - Windows / macOS / Linux
 
-## 安装步骤
+## Installation
 
-1. **克隆或下载项目**
+1. **Clone or download the project**
    ```bash
    cd PufferPet
    ```
 
-2. **安装依赖**
+2. **Install dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **准备图像资源**
+3. **Prepare image assets**
    
-   V3.5版本采用分层目录结构：
+   V3.5 uses a layered directory structure:
    
    ```
    assets/
-   ├── puffer/      (河豚 - Tier 1)
-   ├── jelly/       (水母 - Tier 1)
-   ├── starfish/    (海星 - Tier 1)
-   ├── crab/        (螃蟹 - Tier 1)
-   ├── octopus/     (章鱼 - Tier 2)
-   ├── ribbon/      (带鱼 - Tier 2)
-   ├── sunfish/     (翻车鱼 - Tier 2)
-   ├── angler/      (灯笼鱼 - Tier 2)
-   └── deep_sea/    (深海巨兽 - Tier 3)
-       ├── blobfish/   (水滴鱼)
-       ├── ray/        (鳐鱼)
-       ├── beluga/     (白鲸)
-       ├── orca/       (虎鲸)
-       ├── shark/      (鲨鱼)
-       └── bluewhale/  (蓝鲸)
+   ├── puffer/      (Puffer - Tier 1)
+   ├── jelly/       (Jelly - Tier 1)
+   ├── starfish/    (Starfish - Tier 1)
+   ├── crab/        (Crab - Tier 1)
+   ├── octopus/     (Octopus - Tier 2)
+   ├── ribbon/      (Ribbon Fish - Tier 2)
+   ├── sunfish/     (Sunfish - Tier 2)
+   ├── angler/      (Anglerfish - Tier 2)
+   └── deep_sea/    (Deep Sea Leviathans - Tier 3)
+       ├── blobfish/   (Blobfish)
+       ├── ray/        (Ray)
+       ├── beluga/     (Beluga)
+       ├── orca/       (Orca)
+       ├── shark/      (Shark)
+       └── bluewhale/  (Blue Whale)
    ```
-   
-   **Tier 1 & Tier 2** 文件夹需要包含：
-   - `baby_idle.png` - 等级 1 图像
-   - `adult_idle.png` - 等级 2-3 图像
-   
-   **Tier 3** 文件夹需要包含：
-   - `idle.png` - 唯一图像（Tier 3无等级系统）
-   
-   如果图像文件缺失，应用会显示带颜色的占位符（每个生物不同颜色）。
 
-## 使用方法
+   **Tier 1 & Tier 2** folders need to contain:
+   - `baby_idle.png` - Level 1 image
+   - `adult_idle.png` - Level 2-3 image
+   
+   **Tier 3** folders need to contain:
+   - `idle.png` - Single image (Tier 3 has no level system)
+   
+   If image files are missing, the app displays colored placeholders (different color for each creature).
 
-### 启动应用
+## Usage
+
+### Start the Application
 
 ```bash
 python main.py
 ```
 
-### 基本操作
+### Basic Operations
 
-1. **查看任务**: 在宠物窗口上右键点击，选择"查看任务"
-2. **完成任务**: 在任务窗口中勾选完成的任务
-3. **宠物进化**: 完成全部 3 个任务后，宠物会自动升级
-4. **切换宠物**: 右键点击宠物，选择"切换宠物"
-5. **管理宠物**: 右键点击宠物，选择"管理宠物"（召唤、潜水、放生）
-6. **放生宠物**: 右键点击宠物，选择"放生"（永久删除）
-7. **关闭应用**: 关闭宠物窗口或任务窗口
+1. **View Tasks**: Right-click on pet window, select "View Tasks"
+2. **Complete Tasks**: Check completed tasks in the task window
+3. **Pet Evolution**: After completing all 3 tasks, pet auto-upgrades
+4. **Switch Pet**: Right-click pet, select "Switch Pet"
+5. **Manage Pets**: Right-click pet, select "Manage Pets" (summon, dive, release)
+6. **Release Pet**: Right-click pet, select "Release" (permanent deletion)
+7. **Close App**: Close pet window or task window
 
-### 宠物切换指南
+### Pet Switching Guide
 
-#### 如何切换宠物
+#### How to Switch Pets
 
-1. 在宠物窗口上**右键点击**
-2. 选择菜单中的**"切换宠物"**选项
-3. 在宠物选择窗口中，查看所有可用的宠物
-4. 点击已解锁的宠物卡片进行切换
-5. 当前正在使用的宠物会被高亮显示
+1. **Right-click** on the pet window
+2. Select **"Switch Pet"** from the menu
+3. In the pet selection window, view all available pets
+4. Click on an unlocked pet card to switch
+5. Currently active pet will be highlighted
 
-#### 宠物选择窗口说明
+#### Pet Selection Window Description
 
-- **已解锁宠物**: 显示宠物图标、名称和当前等级，可以点击切换
-- **未解锁宠物**: 显示锁定图标和解锁条件，无法选择
-- **当前宠物**: 会有特殊的高亮边框标识
+- **Unlocked Pets**: Shows pet icon, name and current level, clickable to switch
+- **Locked Pets**: Shows lock icon and unlock conditions, cannot be selected
+- **Current Pet**: Has special highlight border
 
-### 每日任务
+### Daily Tasks
 
-- 💧 喝一杯水
-- 🤸 伸个懒腰
-- 💼 专注工作30分钟
+- 💧 Drink a glass of water
+- 🤸 Do some stretches
+- 💼 Focus on work for 30 minutes
 
-## 🎁 任务奖励系统详解（V3.5 新增）
+## 🎁 Task Reward System Details (V3.5 New)
 
-V3.5版本引入了任务奖励系统，让你的努力获得更多回报！
+V3.5 introduces a task reward system to make your efforts more rewarding!
 
-### 📊 奖励机制
+### 📊 Reward Mechanism
 
-- **累计计数**: 系统会记录你**累计完成的任务总数**（跨越所有宠物和所有天数）
-- **触发条件**: 每完成**12个任务**触发一次奖励判定
-- **自动重置**: 获得奖励后，累计计数自动归零，重新开始计数
+- **Cumulative Count**: System tracks your **total cumulative tasks completed** (across all pets and all days)
+- **Trigger Condition**: Every **12 tasks** completed triggers a reward judgment
+- **Auto Reset**: After receiving reward, cumulative count resets to zero
 
-### 🎲 奖励类型
+### 🎲 Reward Types
 
-每次触发奖励时，系统会随机判定奖励类型：
+Each time a reward is triggered, the system randomly determines the reward type:
 
-| 奖励类型 | 概率 | 说明 |
-|---------|------|------|
-| 🐙 **Tier 2宠物** | 70% | 随机解锁一只未拥有的Tier 2稀有宠物 |
-| 🎁 **深海盲盒** | 30% | 立即开启盲盒，获得一只Tier 3深海巨兽 |
+| Reward Type | Probability | Description |
+|-------------|-------------|-------------|
+| 🐙 **Tier 2 Pet** | 70% | Randomly unlock an unowned Tier 2 rare pet |
+| 🎁 **Deep Sea Blind Box** | 30% | Immediately open blind box, get a Tier 3 deep sea leviathan |
 
-### 🎁 深海盲盒抽取规则
+### 🎁 Deep Sea Blind Box Draw Rules
 
-当你获得深海盲盒时，系统会按以下权重随机抽取Tier 3宠物：
+When you get a deep sea blind box, the system randomly draws a Tier 3 pet with these weights:
 
-| 生物 | 稀有度 | 权重 | 缩放倍率 |
-|------|--------|------|---------|
-| 🐡 水滴鱼 (Blobfish) | 最常见 | 40% | 1.5x |
-| 🦈 鳐鱼 (Ray) | 常见 | 25% | 2.0x |
-| 🐋 白鲸 (Beluga) | 罕见 | 15% | 2.5x |
-| 🐬 虎鲸 (Orca) | 稀有 | 10% | 3.0x |
-| 🦈 鲨鱼 (Shark) | 非常稀有 | 8% | 3.5x |
-| 🐳 蓝鲸 (Blue Whale) | 传说 | 2% | 5.0x |
+| Creature | Rarity | Weight | Scale Factor |
+|----------|--------|--------|--------------|
+| 🐡 Blobfish | Most Common | 40% | 1.5x |
+| 🦈 Ray | Common | 25% | 2.0x |
+| 🐋 Beluga | Uncommon | 15% | 2.5x |
+| 🐬 Orca | Rare | 10% | 3.0x |
+| 🦈 Shark | Very Rare | 8% | 3.5x |
+| 🐳 Blue Whale | Legendary | 2% | 5.0x |
 
-### 💡 奖励获取技巧
+### 💡 Reward Tips
 
-- **持续完成任务**: 每天坚持完成任务，累计计数会持续增长
-- **多宠物培养**: 切换不同宠物完成任务，所有任务都计入累计
-- **库存管理**: 确保库存未满（上限20只），否则无法获得新宠物
-- **耐心收集**: Tier 3宠物完全随机，收集全部需要运气和时间
+- **Keep Completing Tasks**: Complete tasks daily, cumulative count keeps growing
+- **Multi-Pet Raising**: Switch between pets to complete tasks, all tasks count toward cumulative
+- **Inventory Management**: Ensure inventory isn't full (max 20), otherwise can't get new pets
+- **Patient Collection**: Tier 3 pets are completely random, collecting all requires luck and time
 
-### 📝 奖励通知
+### 📝 Reward Notifications
 
-- **Tier 2解锁**: 显示"解锁了[宠物名]！"通知
-- **盲盒开启**: 显示"你钓到了[生物名]！"通知
-- **库存已满**: 显示"鱼缸满了，请先放生"提示
+- **Tier 2 Unlock**: Shows "Unlocked [pet name]!" notification
+- **Blind Box Open**: Shows "You caught a [creature name]!" notification
+- **Inventory Full**: Shows "Tank is full, please release some pets" prompt
 
-## 🏠 库存管理系统（V3.5 新增）
+## 🏠 Inventory Management System (V3.5 New)
 
-V3.5版本引入了库存管理系统，让你可以收集更多宠物并灵活管理显示！
+V3.5 introduces an inventory management system for collecting more pets and flexible display management!
 
-### 📦 库存限制
+### 📦 Inventory Limits
 
-- **总库存上限**: 最多拥有**20只**宠物
-- **活跃宠物上限**: 最多同时显示**5只**宠物在屏幕上
-- **库存状态**: 在宠物管理窗口中实时显示（例如：库存 15/20，活跃 3/5）
+- **Total Inventory Cap**: Own up to **20** pets maximum
+- **Active Pet Cap**: Display up to **5** pets on screen simultaneously
+- **Inventory Status**: Real-time display in pet management window (e.g., Inventory 15/20, Active 3/5)
 
-### 🎯 宠物状态
+### 🎯 Pet States
 
-每只宠物可以处于以下两种状态之一：
+Each pet can be in one of two states:
 
-1. **活跃状态** (Active)
-   - 显示在屏幕上的宠物
-   - 可以完成任务、升级、切换
-   - 最多同时5只
+1. **Active State**
+   - Pets displayed on screen
+   - Can complete tasks, level up, switch
+   - Maximum 5 at once
 
-2. **库存状态** (Inventory)
-   - 存储在库存中，不显示在屏幕上
-   - 保留所有数据（等级、任务进度）
-   - 可以随时召唤到屏幕上
+2. **Inventory State**
+   - Stored in inventory, not displayed on screen
+   - Retains all data (level, task progress)
+   - Can be summoned to screen anytime
 
-### 🔧 宠物管理操作
+### 🔧 Pet Management Operations
 
-#### 📱 打开宠物管理窗口
+#### 📱 Open Pet Management Window
 
-1. 右键点击任意宠物
-2. 选择"管理宠物"选项
-3. 打开宠物管理窗口
+1. Right-click any pet
+2. Select "Manage Pets" option
+3. Opens pet management window
 
-#### 🌊 召唤宠物（Summon）
+#### 🌊 Summon Pet
 
-将库存中的宠物召唤到屏幕上：
+Summon a pet from inventory to screen:
 
-1. 在宠物管理窗口的**库存列表**中选择宠物
-2. 点击"召唤"按钮
-3. 如果活跃宠物少于5只，宠物会出现在屏幕上
-4. 如果已有5只活跃宠物，会提示"屏幕上已有5只宠物"
+1. Select a pet from the **Inventory List** in pet management window
+2. Click "Summon" button
+3. If active pets are less than 5, pet appears on screen
+4. If already 5 active pets, shows "Already 5 pets on screen" prompt
 
-#### 🏊 潜水（Dive）
+#### 🏊 Dive
 
-将屏幕上的宠物收回库存：
+Return a screen pet to inventory:
 
-1. 在宠物管理窗口的**活跃列表**中选择宠物
-2. 点击"潜水"按钮
-3. 宠物窗口会关闭，宠物回到库存
-4. 宠物的所有数据（等级、任务进度）会保留
+1. Select a pet from the **Active List** in pet management window
+2. Click "Dive" button
+3. Pet window closes, pet returns to inventory
+4. All pet data (level, task progress) is preserved
 
-#### 🌊 放生（Release）
+#### 🌊 Release
 
-永久删除不需要的宠物：
+Permanently delete unwanted pets:
 
-**方法一：通过右键菜单**
-1. 右键点击要放生的宠物窗口
-2. 选择"放生"选项
-3. 在确认对话框中点击"确定"
+**Method 1: Via Right-Click Menu**
+1. Right-click the pet window to release
+2. Select "Release" option
+3. Click "OK" in confirmation dialog
 
-**方法二：通过管理窗口**
-1. 在宠物管理窗口中选择宠物（库存或活跃列表）
-2. 点击"放生"按钮
-3. 在确认对话框中点击"确定"
+**Method 2: Via Management Window**
+1. Select a pet in pet management window (inventory or active list)
+2. Click "Release" button
+3. Click "OK" in confirmation dialog
 
-**⚠️ 注意**: 放生操作不可撤销！宠物的所有数据会被永久删除。
+**⚠️ Note**: Release operation is irreversible! All pet data will be permanently deleted.
 
-### 💡 库存管理技巧
+### 💡 Inventory Management Tips
 
-- **优先放生低等级**: 如果库存满了，考虑放生等级较低的重复宠物
-- **保留稀有宠物**: Tier 2和Tier 3宠物较难获得，建议保留
-- **活跃宠物轮换**: 定期轮换活跃宠物，让不同宠物都有机会升级
-- **库存规划**: 为新获得的Tier 3巨兽预留库存空间
+- **Prioritize Releasing Low Level**: If inventory is full, consider releasing lower level duplicate pets
+- **Keep Rare Pets**: Tier 2 and Tier 3 pets are harder to obtain, recommend keeping
+- **Rotate Active Pets**: Regularly rotate active pets so different pets have chances to level up
+- **Inventory Planning**: Reserve inventory space for newly obtained Tier 3 leviathans
 
-### 📊 获得新宠物时的行为
+### 📊 Behavior When Getting New Pets
 
-当你通过奖励或奇遇获得新宠物时：
+When you get a new pet through rewards or encounters:
 
-1. **检查库存**: 如果已有20只宠物，显示"鱼缸满了，请先放生"
-2. **添加到库存**: 新宠物添加到unlocked_pets列表
-3. **自动激活**: 如果活跃宠物少于5只，新宠物会自动显示在屏幕上
-4. **仅存库存**: 如果已有5只活跃宠物，新宠物仅存入库存
+1. **Check Inventory**: If already 20 pets, shows "Tank is full, please release some pets"
+2. **Add to Inventory**: New pet added to unlocked_pets list
+3. **Auto Activate**: If active pets less than 5, new pet auto-displays on screen
+4. **Inventory Only**: If already 5 active pets, new pet only stored in inventory
 
-## 🌊 层级系统说明
+## 🌊 Tier System Explanation
 
-PufferPet V3.5 拥有三层级系统，提供丰富的收集体验：
+PufferPet V3.5 has a three-tier system providing rich collection experience:
 
-### 🏖️ Tier 1 - 基础宠物（浅海生物）
+### 🏖️ Tier 1 - Basic Pets (Shallow Sea Creatures)
 
-这些宠物默认可解锁，拥有完整的三阶段成长系统：
+These pets are unlockable by default, with complete three-stage growth system:
 
-| 生物 | 解锁条件 | 成长阶段 |
-|------|---------|---------|
-| 🐡 河豚 (Puffer) | 默认解锁 | Baby → Adult (3阶段) |
-| 🪼 水母 (Jelly) | 默认解锁 | Baby → Adult (3阶段) |
-| ⭐ 海星 (Starfish) | 默认解锁 | Baby → Adult (3阶段) |
-| 🦀 螃蟹 (Crab) | 默认解锁 | Baby → Adult (3阶段) |
+| Creature | Unlock Condition | Growth Stages |
+|----------|------------------|---------------|
+| 🐡 Puffer | Default Unlocked | Baby → Adult (3 stages) |
+| 🪼 Jelly | Default Unlocked | Baby → Adult (3 stages) |
+| ⭐ Starfish | Default Unlocked | Baby → Adult (3 stages) |
+| 🦀 Crab | Default Unlocked | Baby → Adult (3 stages) |
 
-### 🌑 Tier 2 - 稀有宠物（深海生物）
+### 🌑 Tier 2 - Rare Pets (Deep Sea Creatures)
 
-这些宠物可以通过**奇遇系统**捕获或**任务奖励**获得，同样拥有完整成长系统：
+These pets can be captured through **Encounter System** or obtained via **Task Rewards**, also with complete growth system:
 
-| 生物 | 解锁条件 | 成长阶段 |
-|------|---------|---------|
-| 🐙 章鱼 (Octopus) | 奇遇捕获 / 任务奖励 | Baby → Adult (3阶段) |
-| 🐍 带鱼 (Ribbon) | 奇遇捕获 / 任务奖励 | Baby → Adult (3阶段) |
-| 🐟 翻车鱼 (Sunfish) | 奇遇捕获 / 任务奖励 | Baby → Adult (3阶段) |
-| 🔦 灯笼鱼 (Angler) | 奇遇捕获 / 任务奖励 | Baby → Adult (3阶段) |
+| Creature | Unlock Condition | Growth Stages |
+|----------|------------------|---------------|
+| 🐙 Octopus | Encounter Capture / Task Reward | Baby → Adult (3 stages) |
+| 🐍 Ribbon | Encounter Capture / Task Reward | Baby → Adult (3 stages) |
+| 🐟 Sunfish | Encounter Capture / Task Reward | Baby → Adult (3 stages) |
+| 🔦 Angler | Encounter Capture / Task Reward | Baby → Adult (3 stages) |
 
-### 🐋 Tier 3 - 深海巨兽（传说生物）
+### 🐋 Tier 3 - Deep Sea Leviathans (Legendary Creatures)
 
-这些宠物只能通过**深海盲盒**获得，体型巨大，无等级系统：
+These pets can only be obtained through **Deep Sea Blind Box**, huge in size, no level system:
 
-| 生物 | 解锁条件 | 稀有度 | 缩放倍率 |
-|------|---------|--------|---------|
-| 🐡 水滴鱼 (Blobfish) | 深海盲盒 | 最常见 (40%) | 1.5x |
-| 🦈 鳐鱼 (Ray) | 深海盲盒 | 常见 (25%) | 2.0x |
-| 🐋 白鲸 (Beluga) | 深海盲盒 | 罕见 (15%) | 2.5x |
-| 🐬 虎鲸 (Orca) | 深海盲盒 | 稀有 (10%) | 3.0x |
-| 🦈 鲨鱼 (Shark) | 深海盲盒 | 非常稀有 (8%) | 3.5x |
-| 🐳 蓝鲸 (Blue Whale) | 深海盲盒 | 传说 (2%) | 5.0x |
+| Creature | Unlock Condition | Rarity | Scale Factor |
+|----------|------------------|--------|--------------|
+| 🐡 Blobfish | Deep Sea Blind Box | Most Common (40%) | 1.5x |
+| 🦈 Ray | Deep Sea Blind Box | Common (25%) | 2.0x |
+| 🐋 Beluga | Deep Sea Blind Box | Uncommon (15%) | 2.5x |
+| 🐬 Orca | Deep Sea Blind Box | Rare (10%) | 3.0x |
+| 🦈 Shark | Deep Sea Blind Box | Very Rare (8%) | 3.5x |
+| 🐳 Blue Whale | Deep Sea Blind Box | Legendary (2%) | 5.0x |
 
-### 📊 成长系统
+### 📊 Growth System
 
-**Tier 1 & Tier 2** 生物遵循相同的成长规则：
+**Tier 1 & Tier 2** creatures follow the same growth rules:
 
-| 等级 | 需要完成的任务 | 图像文件 |
-|------|---------------|---------|
-| 1 | 初始状态 | baby_idle.png |
-| 2 | 完成 3 个任务 | adult_idle.png |
-| 3 | 再完成 3 个任务 | adult_idle.png |
+| Level | Tasks Required | Image File |
+|-------|----------------|------------|
+| 1 | Initial State | baby_idle.png |
+| 2 | Complete 3 tasks | adult_idle.png |
+| 3 | Complete 3 more tasks | adult_idle.png |
 
-**Tier 3** 深海巨兽特性：
+**Tier 3** Deep Sea Leviathan characteristics:
 
-- ❌ **无等级系统**: Tier 3生物没有成长阶段，始终保持成年形态
-- ❌ **无任务系统**: 无法通过完成任务升级
-- ✅ **装饰性**: 主要用于装饰桌面，展示收集成就
-- ✅ **智能缩放**: 根据生物体型自动缩放（1.5x - 5.0x）
-- ✅ **多宠物显示**: 可以和其他宠物同时显示在屏幕上
+- ❌ **No Level System**: Tier 3 creatures have no growth stages, always maintain adult form
+- ❌ **No Task System**: Cannot level up by completing tasks
+- ✅ **Decorative**: Mainly for desktop decoration, showcasing collection achievements
+- ✅ **Smart Scaling**: Auto-scales based on creature size (1.5x - 5.0x)
+- ✅ **Multi-Pet Display**: Can display simultaneously with other pets on screen
 
-## ✨ 奇遇系统详解
+## ✨ Encounter System Details
 
-奇遇系统是V3版本的核心玩法，让你能够发现和捕获稀有的深海生物！
+The encounter system is V3's core gameplay, letting you discover and capture rare deep sea creatures!
 
-### 🎯 如何触发奇遇
+### 🎯 How to Trigger Encounters
 
-1. **解锁条件**: 将**任意一只** Tier 1宠物培养到**等级3**
-2. **自动触发**: 满足条件后，系统会自动启用奇遇机制
-3. **定时判定**: 每**5分钟**进行一次奇遇判定
-4. **触发概率**: 每次判定有**30%**的概率触发奇遇事件
+1. **Unlock Condition**: Raise **any** Tier 1 pet to **Level 3**
+2. **Auto Trigger**: After meeting conditions, system auto-enables encounter mechanism
+3. **Timed Check**: Every **5 minutes** performs an encounter check
+4. **Trigger Probability**: Each check has **30%** chance to trigger encounter event
 
-### 🏃 稀有生物出现
+### 🏃 Rare Creature Appearance
 
-当奇遇事件触发时：
+When an encounter event triggers:
 
-1. **随机选择**: 系统从**未解锁**的Tier 2宠物中随机选择一只
-2. **横向移动**: 稀有生物会从屏幕**左侧**出现，向**右侧**游动
-3. **限时捕获**: 生物会在**15-20秒**内穿过屏幕
-4. **自动消失**: 如果未被捕获，生物会在到达右侧边缘后消失
+1. **Random Selection**: System randomly selects one from **unlocked** Tier 2 pets
+2. **Horizontal Movement**: Rare creature appears from screen **left**, swims to **right**
+3. **Limited Time Capture**: Creature crosses screen in **15-20 seconds**
+4. **Auto Disappear**: If not captured, creature disappears after reaching right edge
 
-### 🎣 如何捕获稀有生物
+### 🎣 How to Capture Rare Creatures
 
-捕获非常简单：
+Capturing is simple:
 
-1. **观察屏幕**: 留意从左侧游过的稀有生物
-2. **点击捕获**: 用鼠标**左键点击**游动的生物
-3. **立即解锁**: 捕获成功后，生物会立即加入你的收藏
-4. **显示通知**: 应用会显示捕获成功的通知消息
+1. **Watch Screen**: Notice rare creatures swimming from the left
+2. **Click to Capture**: **Left-click** on the swimming creature
+3. **Instant Unlock**: After successful capture, creature immediately joins your collection
+4. **Show Notification**: App displays capture success notification
 
-### 📝 奇遇系统特性
+### 📝 Encounter System Features
 
-- ✅ **后台运行**: 奇遇系统在后台自动运行，无需手动操作
-- ✅ **不干扰使用**: 访客窗口不会阻塞你的其他操作
-- ✅ **透明显示**: 稀有生物以透明背景显示，融入桌面环境
-- ✅ **全部收集**: 捕获所有4只Tier 2宠物后，奇遇事件会自动停止
-- ⚠️ **需要等级3**: 如果所有Tier 1宠物都低于等级3，奇遇系统会暂停
+- ✅ **Background Running**: Encounter system runs automatically in background, no manual operation needed
+- ✅ **Non-Intrusive**: Visitor window doesn't block your other operations
+- ✅ **Transparent Display**: Rare creatures display with transparent background, blending into desktop
+- ✅ **Complete Collection**: After capturing all 4 Tier 2 pets, encounter events auto-stop
+- ⚠️ **Requires Level 3**: If all Tier 1 pets are below level 3, encounter system pauses
 
-### 💡 捕获技巧
+### 💡 Capture Tips
 
-- **保持应用运行**: 奇遇只在应用运行时触发
-- **培养多只宠物**: 将多只Tier 1宠物升到等级3，确保奇遇系统持续运行
-- **注意屏幕边缘**: 稀有生物从左侧出现，留意屏幕左侧区域
-- **快速反应**: 生物移动速度较快，看到后要及时点击
+- **Keep App Running**: Encounters only trigger while app is running
+- **Raise Multiple Pets**: Level multiple Tier 1 pets to level 3 to ensure encounter system keeps running
+- **Watch Screen Edges**: Rare creatures appear from left, watch the left side of screen
+- **Quick Reaction**: Creatures move fast, click promptly when you see them
 
-## 🎯 如何获得深海巨兽 - 完整指南
+## 🎯 How to Get Deep Sea Leviathans - Complete Guide
 
-想要收集传说级的Tier 3深海巨兽？跟随这个完整指南！
+Want to collect legendary Tier 3 deep sea leviathans? Follow this complete guide!
 
-### 📋 前置条件
+### 📋 Prerequisites
 
-在开始收集深海巨兽之前，你需要：
+Before starting to collect deep sea leviathans, you need:
 
-1. ✅ 至少拥有1只宠物（默认有河豚）
-2. ✅ 能够完成每日任务
-3. ✅ 有耐心和运气！
+1. ✅ Own at least 1 pet (default is puffer)
+2. ✅ Able to complete daily tasks
+3. ✅ Have patience and luck!
 
-### 🎯 获取流程
+### 🎯 Acquisition Process
 
-#### 第一步：累计完成任务
+#### Step 1: Accumulate Completed Tasks
 
-1. **每天完成任务**: 打开任务窗口，完成三个每日任务
-2. **切换宠物培养**: 可以切换不同宠物完成任务，所有任务都计入累计
-3. **查看进度**: 系统会自动记录你的累计任务完成数
+1. **Complete Tasks Daily**: Open task window, complete three daily tasks
+2. **Rotate Pet Raising**: Can switch different pets to complete tasks, all tasks count toward cumulative
+3. **View Progress**: System auto-tracks your cumulative task completion count
 
-#### 第二步：触发奖励判定
+#### Step 2: Trigger Reward Judgment
 
-1. **达到12个任务**: 每累计完成12个任务，触发一次奖励判定
-2. **自动触发**: 完成第12个任务时，系统会自动进行奖励判定
-3. **重置计数**: 获得奖励后，累计计数归零，重新开始
+1. **Reach 12 Tasks**: Every 12 cumulative tasks triggers one reward judgment
+2. **Auto Trigger**: When completing the 12th task, system auto-performs reward judgment
+3. **Reset Count**: After receiving reward, cumulative count resets to zero
 
-#### 第三步：获得深海盲盒
+#### Step 3: Get Deep Sea Blind Box
 
-奖励判定有两种可能结果：
+Reward judgment has two possible outcomes:
 
-- **70%概率**: 获得Tier 2稀有宠物（章鱼、带鱼、翻车鱼、灯笼鱼）
-- **30%概率**: 获得深海盲盒 ⭐
+- **70% Probability**: Get Tier 2 rare pet (Octopus, Ribbon, Sunfish, Angler)
+- **30% Probability**: Get Deep Sea Blind Box ⭐
 
-**如果获得盲盒**：
-1. 系统会立即开启盲盒
-2. 按权重随机抽取一只Tier 3深海巨兽
-3. 显示"你钓到了[生物名]！"通知
+**If you get a blind box**:
+1. System immediately opens the blind box
+2. Randomly draws one Tier 3 deep sea leviathan by weight
+3. Shows "You caught a [creature name]!" notification
 
-#### 第四步：盲盒抽取结果
+#### Step 4: Blind Box Draw Results
 
-盲盒开启后，你会获得以下生物之一：
+After opening blind box, you'll get one of these creatures:
 
-| 生物 | 概率 | 体型 |
-|------|------|------|
-| 🐡 水滴鱼 | 40% | 小型 (1.5x) |
-| 🦈 鳐鱼 | 25% | 中型 (2.0x) |
-| 🐋 白鲸 | 15% | 大型 (2.5x) |
-| 🐬 虎鲸 | 10% | 大型 (3.0x) |
-| 🦈 鲨鱼 | 8% | 巨型 (3.5x) |
-| 🐳 蓝鲸 | 2% | 超巨型 (5.0x) |
+| Creature | Probability | Size |
+|----------|-------------|------|
+| 🐡 Blobfish | 40% | Small (1.5x) |
+| 🦈 Ray | 25% | Medium (2.0x) |
+| 🐋 Beluga | 15% | Large (2.5x) |
+| 🐬 Orca | 10% | Large (3.0x) |
+| 🦈 Shark | 8% | Giant (3.5x) |
+| 🐳 Blue Whale | 2% | Super Giant (5.0x) |
 
-### 📊 期望值计算
+### 📊 Expected Value Calculation
 
-想知道收集全部6种深海巨兽需要多久？
+Want to know how long to collect all 6 deep sea leviathans?
 
-- **触发一次盲盒**: 平均需要完成 12 ÷ 0.3 = **40个任务**
-- **每天3个任务**: 大约需要 **13-14天** 触发一次盲盒
-- **收集全部6种**: 考虑到重复，平均需要 **15-20次盲盒**
-- **总时间估算**: 大约 **6-9个月** 可以收集全部（如果每天坚持）
+- **Trigger One Blind Box**: Average need to complete 12 ÷ 0.3 = **40 tasks**
+- **3 Tasks Per Day**: About **13-14 days** to trigger one blind box
+- **Collect All 6 Types**: Considering duplicates, average need **15-20 blind boxes**
+- **Total Time Estimate**: About **6-9 months** to collect all (if completing daily)
 
-### 💡 加速收集技巧
+### 💡 Speed Up Collection Tips
 
-#### 1. 多宠物轮换策略
+#### 1. Multi-Pet Rotation Strategy
 
-- 培养多只宠物到等级3
-- 每天轮换不同宠物完成任务
-- 所有任务都计入累计，加速触发奖励
+- Raise multiple pets to level 3
+- Rotate different pets daily to complete tasks
+- All tasks count toward cumulative, speeds up reward triggering
 
-#### 2. 库存管理
+#### 2. Inventory Management
 
-- **保持库存空间**: 确保库存未满（上限20只）
-- **及时放生**: 放生重复或低等级的宠物腾出空间
-- **预留位置**: 为Tier 3巨兽预留至少5个库存位
+- **Keep Inventory Space**: Ensure inventory isn't full (max 20)
+- **Release Promptly**: Release duplicate or low-level pets to make space
+- **Reserve Slots**: Reserve at least 5 inventory slots for Tier 3 leviathans
 
-#### 3. 活跃宠物管理
+#### 3. Active Pet Management
 
-- **同时显示多只**: 最多可以同时显示5只宠物
-- **轮换培养**: 将不同宠物召唤到屏幕上完成任务
-- **潜水休息**: 已满级的宠物可以潜水，为新宠物腾出位置
+- **Display Multiple**: Can display up to 5 pets simultaneously
+- **Rotate Raising**: Summon different pets to screen to complete tasks
+- **Dive to Rest**: Max level pets can dive, making room for new pets
 
-#### 4. 坚持完成任务
+#### 4. Keep Completing Tasks
 
-- **每天登录**: 每天至少完成3个任务
-- **持续累计**: 累计任务数会跨天保存
-- **耐心等待**: 收集Tier 3需要时间和运气
+- **Login Daily**: Complete at least 3 tasks daily
+- **Continuous Accumulation**: Cumulative task count saves across days
+- **Patient Waiting**: Collecting Tier 3 requires time and luck
 
-### ⚠️ 常见问题
+### ⚠️ FAQ
 
-**Q: 我完成了12个任务，但没有获得盲盒？**
+**Q: I completed 12 tasks but didn't get a blind box?**
 
-A: 奖励判定有70%概率获得Tier 2宠物，只有30%概率获得盲盒。继续完成任务，下次可能就会获得盲盒！
+A: Reward judgment has 70% probability to get Tier 2 pet, only 30% probability for blind box. Keep completing tasks, next time might get a blind box!
 
-**Q: 盲盒开启后，我没有看到新宠物？**
+**Q: After opening blind box, I don't see the new pet?**
 
-A: 检查以下情况：
-- 库存是否已满（20只上限）？如果满了，会显示"鱼缸满了"提示
-- 活跃宠物是否已满（5只上限）？如果满了，新宠物会存入库存
-- 打开宠物管理窗口，在库存列表中查找新宠物
+A: Check these situations:
+- Is inventory full (20 max)? If full, shows "Tank is full" prompt
+- Are active pets full (5 max)? If full, new pet goes to inventory
+- Open pet management window, look for new pet in inventory list
 
-**Q: 我抽到了重复的Tier 3宠物怎么办？**
+**Q: What if I get duplicate Tier 3 pets?**
 
-A: Tier 3宠物可以重复获得。你可以：
-- 保留多只相同的巨兽（例如5只蓝鲸）
-- 放生重复的宠物，为新宠物腾出空间
-- 同时显示多只相同的巨兽，打造壮观场景
+A: Tier 3 pets can be obtained repeatedly. You can:
+- Keep multiple identical leviathans (e.g., 5 blue whales)
+- Release duplicates to make room for new pets
+- Display multiple identical leviathans simultaneously for spectacular scenes
 
-**Q: 蓝鲸只有2%概率，太难获得了！**
+**Q: Blue whale only has 2% probability, too hard to get!**
 
-A: 蓝鲸是传说级生物，确实非常稀有。建议：
-- 保持耐心，持续完成任务
-- 平均需要50次盲盒才能获得1只蓝鲸
-- 享受收集过程，不要过于执着于单一目标
+A: Blue whale is a legendary creature, indeed very rare. Suggestions:
+- Stay patient, keep completing tasks
+- Average need 50 blind boxes to get 1 blue whale
+- Enjoy the collection process, don't obsess over single targets
 
-### 🎉 收集成就
+### 🎉 Collection Achievements
 
-收集深海巨兽的里程碑：
+Deep sea leviathan collection milestones:
 
-- 🥉 **初次邂逅**: 获得第1只Tier 3生物
-- 🥈 **深海探索者**: 获得3种不同的Tier 3生物
-- 🥇 **海洋收藏家**: 获得全部6种Tier 3生物
-- 👑 **传说猎人**: 获得蓝鲸（2%概率）
-- 🌟 **完美收藏**: 拥有全部14种生物（Tier 1-3）
+- 🥉 **First Encounter**: Get 1st Tier 3 creature
+- 🥈 **Deep Sea Explorer**: Get 3 different Tier 3 creatures
+- 🥇 **Ocean Collector**: Get all 6 Tier 3 creatures
+- 👑 **Legend Hunter**: Get Blue Whale (2% probability)
+- 🌟 **Perfect Collection**: Own all 14 creatures (Tier 1-3)
 
-## 🐾 完整生物图鉴
+## 🐾 Complete Creature Encyclopedia
 
-### Tier 1 - 浅海生物
+### Tier 1 - Shallow Sea Creatures
 
-#### 🐡 河豚 (Puffer)
-- **解锁**: 默认解锁
-- **特点**: 圆滚滚的身体，可爱的表情
-- **图像**: `assets/puffer/baby_idle.png`, `assets/puffer/adult_idle.png`
+#### 🐡 Puffer
+- **Unlock**: Default Unlocked
+- **Features**: Round body, cute expression
+- **Images**: `assets/puffer/baby_idle.png`, `assets/puffer/adult_idle.png`
 
-#### 🪼 水母 (Jelly)
-- **解锁**: 默认解锁
-- **特点**: 优雅的触手，透明的身体
-- **图像**: `assets/jelly/baby_idle.png`, `assets/jelly/adult_idle.png`
+#### 🪼 Jelly
+- **Unlock**: Default Unlocked
+- **Features**: Elegant tentacles, transparent body
+- **Images**: `assets/jelly/baby_idle.png`, `assets/jelly/adult_idle.png`
 
-#### ⭐ 海星 (Starfish)
-- **解锁**: 默认解锁
-- **特点**: 五角星形状，色彩鲜艳
-- **图像**: `assets/starfish/baby_idle.png`, `assets/starfish/adult_idle.png`
+#### ⭐ Starfish
+- **Unlock**: Default Unlocked
+- **Features**: Five-pointed star shape, vibrant colors
+- **Images**: `assets/starfish/baby_idle.png`, `assets/starfish/adult_idle.png`
 
-#### 🦀 螃蟹 (Crab)
-- **解锁**: 默认解锁
-- **特点**: 横行霸道，钳子有力
-- **图像**: `assets/crab/baby_idle.png`, `assets/crab/adult_idle.png`
+#### 🦀 Crab
+- **Unlock**: Default Unlocked
+- **Features**: Walks sideways, powerful claws
+- **Images**: `assets/crab/baby_idle.png`, `assets/crab/adult_idle.png`
 
-### Tier 2 - 深海生物（稀有）
+### Tier 2 - Deep Sea Creatures (Rare)
 
-#### 🐙 章鱼 (Octopus)
-- **解锁**: 通过奇遇捕获
-- **特点**: 八条触手，聪明灵活
-- **图像**: `assets/octopus/baby_idle.png`, `assets/octopus/adult_idle.png`
+#### 🐙 Octopus
+- **Unlock**: Via Encounter Capture
+- **Features**: Eight tentacles, smart and agile
+- **Images**: `assets/octopus/baby_idle.png`, `assets/octopus/adult_idle.png`
 
-#### 🐍 带鱼 (Ribbon)
-- **解锁**: 通过奇遇捕获
-- **特点**: 修长的身体，优雅游动
-- **图像**: `assets/ribbon/baby_idle.png`, `assets/ribbon/adult_idle.png`
+#### 🐍 Ribbon
+- **Unlock**: Via Encounter Capture
+- **Features**: Long slender body, elegant swimming
+- **Images**: `assets/ribbon/baby_idle.png`, `assets/ribbon/adult_idle.png`
 
-#### 🐟 翻车鱼 (Sunfish)
-- **解锁**: 通过奇遇捕获
-- **特点**: 巨大扁平，憨态可掬
-- **图像**: `assets/sunfish/baby_idle.png`, `assets/sunfish/adult_idle.png`
+#### 🐟 Sunfish
+- **Unlock**: Via Encounter Capture
+- **Features**: Huge and flat, adorably clumsy
+- **Images**: `assets/sunfish/baby_idle.png`, `assets/sunfish/adult_idle.png`
 
-#### 🔦 灯笼鱼 (Angler)
-- **解锁**: 通过奇遇捕获
-- **特点**: 头顶发光器，深海猎手
-- **图像**: `assets/angler/baby_idle.png`, `assets/angler/adult_idle.png`
+#### 🔦 Angler
+- **Unlock**: Via Encounter Capture
+- **Features**: Head-mounted light, deep sea hunter
+- **Images**: `assets/angler/baby_idle.png`, `assets/angler/adult_idle.png`
 
-### Tier 3 - 深海巨兽（传说）
+### Tier 3 - Deep Sea Leviathans (Legendary)
 
-#### 🐡 水滴鱼 (Blobfish)
-- **解锁**: 深海盲盒（40%概率）
-- **特点**: 憨态可掬，最常见的深海巨兽
-- **缩放**: 1.5x
-- **图像**: `assets/deep_sea/blobfish/idle.png`
+#### 🐡 Blobfish
+- **Unlock**: Deep Sea Blind Box (40% probability)
+- **Features**: Adorably clumsy, most common deep sea leviathan
+- **Scale**: 1.5x
+- **Image**: `assets/deep_sea/blobfish/idle.png`
 
-#### 🦈 鳐鱼 (Ray)
-- **解锁**: 深海盲盒（25%概率）
-- **特点**: 扁平身体，优雅滑翔
-- **缩放**: 2.0x
-- **图像**: `assets/deep_sea/ray/idle.png`
+#### 🦈 Ray
+- **Unlock**: Deep Sea Blind Box (25% probability)
+- **Features**: Flat body, elegant gliding
+- **Scale**: 2.0x
+- **Image**: `assets/deep_sea/ray/idle.png`
 
-#### 🐋 白鲸 (Beluga)
-- **解锁**: 深海盲盒（15%概率）
-- **特点**: 白色身体，温和友善
-- **缩放**: 2.5x
-- **图像**: `assets/deep_sea/beluga/idle.png`
+#### 🐋 Beluga
+- **Unlock**: Deep Sea Blind Box (15% probability)
+- **Features**: White body, gentle and friendly
+- **Scale**: 2.5x
+- **Image**: `assets/deep_sea/beluga/idle.png`
 
-#### 🐬 虎鲸 (Orca)
-- **解锁**: 深海盲盒（10%概率）
-- **特点**: 黑白相间，海洋霸主
-- **缩放**: 3.0x
-- **图像**: `assets/deep_sea/orca/idle.png`
+#### 🐬 Orca
+- **Unlock**: Deep Sea Blind Box (10% probability)
+- **Features**: Black and white pattern, ocean apex
+- **Scale**: 3.0x
+- **Image**: `assets/deep_sea/orca/idle.png`
 
-#### 🦈 鲨鱼 (Shark)
-- **解锁**: 深海盲盒（8%概率）
-- **特点**: 流线型身体，顶级掠食者
-- **缩放**: 3.5x
-- **图像**: `assets/deep_sea/shark/idle.png`
+#### 🦈 Shark
+- **Unlock**: Deep Sea Blind Box (8% probability)
+- **Features**: Streamlined body, apex predator
+- **Scale**: 3.5x
+- **Image**: `assets/deep_sea/shark/idle.png`
 
-#### 🐳 蓝鲸 (Blue Whale)
-- **解锁**: 深海盲盒（2%概率）
-- **特点**: 地球最大生物，传说级存在
-- **缩放**: 5.0x
-- **图像**: `assets/deep_sea/bluewhale/idle.png`
+#### 🐳 Blue Whale
+- **Unlock**: Deep Sea Blind Box (2% probability)
+- **Features**: Earth's largest creature, legendary existence
+- **Scale**: 5.0x
+- **Image**: `assets/deep_sea/bluewhale/idle.png`
 
-## 数据存储
+## Data Storage
 
-应用会在项目目录下创建 `data.json` 文件来保存：
-- 当前显示的宠物ID（已弃用，V3.5使用active_pets）
-- 已解锁的宠物列表（库存，最多20只）
-- 活跃宠物列表（屏幕上显示的宠物，最多5只）
-- 宠物层级定义（Tier 1 / Tier 2 / Tier 3）
-- Tier 3缩放倍率配置
-- Tier 3盲盒抽取权重
-- 每个宠物的独立数据：
-  - 当前等级（Tier 3无等级）
-  - 今日完成的任务数
-  - 任务完成状态
-  - 最后登录日期
-- 奇遇系统设置：
-  - 检查间隔
-  - 触发概率
-  - 上次检查时间
-- 任务奖励系统：
-  - 累计完成任务数
-  - 奖励触发阈值（12）
-  - Tier 2解锁概率（70%）
-  - 盲盒获得概率（30%）
-- 库存限制配置：
-  - 最大库存数（20）
-  - 最大活跃数（5）
+The app creates a `data.json` file in the project directory to save:
+- Current displayed pet ID (deprecated, V3.5 uses active_pets)
+- Unlocked pets list (inventory, max 20)
+- Active pets list (pets displayed on screen, max 5)
+- Pet tier definitions (Tier 1 / Tier 2 / Tier 3)
+- Tier 3 scale factor configuration
+- Tier 3 blind box draw weights
+- Each pet's independent data:
+  - Current level (Tier 3 has no level)
+  - Tasks completed today
+  - Task completion states
+  - Last login date
+- Encounter system settings:
+  - Check interval
+  - Trigger probability
+  - Last check time
+- Task reward system:
+  - Cumulative completed tasks
+  - Reward trigger threshold (12)
+  - Tier 2 unlock probability (70%)
+  - Blind box probability (30%)
+- Inventory limit configuration:
+  - Max inventory (20)
+  - Max active (5)
 
-每天首次启动时，所有宠物的任务会自动重置。
+Tasks auto-reset for all pets on first launch each day.
 
-### 数据迁移说明
+### Data Migration Notes
 
-#### 从 V3 升级到 V3.5
+#### Upgrading from V3 to V3.5
 
-如果你是从V3版本升级到V3.5，应用会**自动迁移**你的数据：
+If upgrading from V3 to V3.5, the app will **auto-migrate** your data:
 
-1. **自动检测**: 应用启动时会检测V3版本数据格式
-2. **数据迁移**: 
-   - 保留你现有的所有宠物数据（8种生物）
-   - 添加Tier 3深海巨兽配置（6种新生物）
-   - 创建active_pets列表（将current_pet_id迁移为活跃宠物）
-   - 初始化任务奖励系统（cumulative_tasks_completed）
-   - 添加库存限制配置（max_inventory: 20, max_active: 5）
-   - 添加Tier 3缩放倍率和抽取权重
-3. **备份创建**: V3数据会备份为 `data.json.v3.backup`
-4. **无缝体验**: 迁移过程完全自动，无需手动操作
+1. **Auto Detection**: App detects V3 data format on startup
+2. **Data Migration**: 
+   - Preserves all your existing pet data (8 creatures)
+   - Adds Tier 3 deep sea leviathan configuration (6 new creatures)
+   - Creates active_pets list (migrates current_pet_id to active pets)
+   - Initializes task reward system (cumulative_tasks_completed)
+   - Adds inventory limit configuration (max_inventory: 20, max_active: 5)
+   - Adds Tier 3 scale factors and draw weights
+3. **Backup Created**: V3 data backed up as `data.json.v3.backup`
+4. **Seamless Experience**: Migration is fully automatic, no manual operation needed
 
-#### 从 V2 升级到 V3.5
+#### V5.5 Data Format (Latest)
 
-如果你是从V2版本直接升级到V3.5，应用会**自动迁移**你的数据：
-
-1. **自动检测**: 应用启动时会检测V2版本数据格式
-2. **数据迁移**: 
-   - 保留你现有的宠物数据（河豚、水母）
-   - 添加新的Tier 1宠物（海星、螃蟹）
-   - 创建所有14种生物的数据结构（Tier 1-3）
-   - 添加宠物层级定义（pet_tiers）
-   - 初始化奇遇系统和任务奖励系统
-   - 创建active_pets列表和库存管理配置
-3. **备份创建**: V2数据会备份为 `data.json.v2.backup`
-4. **无缝体验**: 迁移过程完全自动，无需手动操作
-
-#### 从 V2 升级到 V3
-
-如果你是从V2版本升级到V3，应用会**自动迁移**你的数据：
-
-1. **自动检测**: 应用启动时会检测V2版本数据格式
-2. **数据迁移**: 
-   - 保留你现有的所有宠物数据（河豚、水母）
-   - 添加新的Tier 1宠物（海星、螃蟹）到已解锁列表
-   - 创建所有8种生物的数据结构
-   - 添加宠物层级定义（pet_tiers）
-   - 初始化奇遇系统设置（encounter_settings）
-3. **备份创建**: V2数据会备份为 `data.json.v2.backup`
-4. **无缝体验**: 迁移过程完全自动，无需手动操作
-
-#### 从 V1 升级到 V3
-
-如果你是从V1版本直接升级到V3，应用会**自动迁移**你的数据：
-
-1. **自动检测**: 应用启动时会检测V1版本数据格式
-2. **数据迁移**: 
-   - 你的河豚数据会被保留（等级、任务进度等）
-   - 创建新的多宠物数据结构
-   - 解锁所有Tier 1宠物（河豚、水母、海星、螃蟹）
-   - 初始化所有8种生物的数据
-   - 添加层级系统和奇遇系统配置
-3. **备份创建**: V1数据会备份为 `data.json.v1.backup`
-4. **无缝体验**: 迁移过程完全自动，无需手动操作
-
-#### V5.5 数据格式（最新）
-
-V5.5 版本在 V5 基础上添加了昼夜循环相关的配置：
+V5.5 adds day/night cycle related configuration on top of V5:
 
 ```json
 {
@@ -705,1145 +662,165 @@ V5.5 版本在 V5 基础上添加了昼夜循环相关的配置：
   "screensaver_settings": {
     "gather_pets_to_center": true,
     "saved_pet_positions": {}
-  },
-  // ... 其他 V5 字段保持不变
-}
-```
-
-**V5.5 新增字段说明:**
-- `day_night_settings`: 昼夜循环配置
-  - `auto_time_sync`: 是否跟随系统时间自动切换（默认true）
-  - `current_mode`: 当前模式（"day" 或 "night"）
-
-**V5 字段说明:**
-- `deep_dive_settings`: 深潜模式配置
-  - `enabled`: 深潜模式是否开启
-  - `auto_screensaver`: 是否启用自动屏保
-  - `idle_timeout_minutes`: 空闲超时时间（分钟）
-  - `bubble_density`: 气泡密度（low/normal/high）
-- `screensaver_settings`: 屏保配置
-  - `gather_pets_to_center`: 屏保时是否聚拢宠物
-  - `saved_pet_positions`: 保存的宠物原始位置
-
-#### V3.5 数据格式
-
-```json
-{
-  "version": 3.5,
-  "current_pet_id": "puffer",
-  "unlocked_pets": ["puffer", "jelly", "starfish", "crab", "octopus", "blobfish"],
-  "active_pets": ["puffer", "jelly", "blobfish"],
-  "pet_tiers": {
-    "tier1": ["puffer", "jelly", "starfish", "crab"],
-    "tier2": ["octopus", "ribbon", "sunfish", "angler"],
-    "tier3": ["blobfish", "ray", "beluga", "orca", "shark", "bluewhale"]
-  },
-  "tier3_scale_factors": {
-    "blobfish": 1.5,
-    "ray": 2.0,
-    "beluga": 2.5,
-    "orca": 3.0,
-    "shark": 3.5,
-    "bluewhale": 5.0
-  },
-  "tier3_weights": {
-    "blobfish": 0.40,
-    "ray": 0.25,
-    "beluga": 0.15,
-    "orca": 0.10,
-    "shark": 0.08,
-    "bluewhale": 0.02
-  },
-  "reward_system": {
-    "cumulative_tasks_completed": 8,
-    "reward_threshold": 12,
-    "tier2_unlock_probability": 0.7,
-    "lootbox_probability": 0.3
-  },
-  "inventory_limits": {
-    "max_inventory": 20,
-    "max_active": 5
-  },
-  "pets_data": {
-    "puffer": {
-      "level": 3,
-      "tasks_completed_today": 2,
-      "last_login_date": "2024-12-02",
-      "task_states": [true, true, false]
-    },
-    "jelly": { ... },
-    "starfish": { ... },
-    "crab": { ... },
-    "octopus": { ... },
-    "ribbon": { ... },
-    "sunfish": { ... },
-    "angler": { ... },
-    "blobfish": { ... },
-    "ray": { ... },
-    "beluga": { ... },
-    "orca": { ... },
-    "shark": { ... },
-    "bluewhale": { ... }
-  },
-  "encounter_settings": {
-    "check_interval_minutes": 5,
-    "trigger_probability": 0.3,
-    "last_encounter_check": "2024-12-02T14:30:00"
   }
 }
 ```
 
-#### 迁移注意事项
+**V5.5 New Fields:**
+- `day_night_settings`: Day/night cycle configuration
+  - `auto_time_sync`: Whether to auto-switch based on system time (default true)
+  - `current_mode`: Current mode ("day" or "night")
 
-- ✅ **安全**: 原始数据会被备份，不会丢失
-- ✅ **自动**: 无需手动操作，启动应用即可完成迁移
-- ✅ **兼容**: 迁移后的数据完全兼容最新版本的所有功能
-- ✅ **保留进度**: 你现有宠物的等级和任务进度会完整保留
-- ✅ **新功能**: 自动启用任务奖励系统和库存管理
-- ✅ **多宠物显示**: V3.5支持同时显示最多5只宠物
-- ⚠️ **单向**: 迁移后无法回退到旧版本（但备份文件仍然保留）
-- ⚠️ **库存整理**: 如果你有超过20只宠物，需要放生一些才能继续获得新宠物
+**V5 Fields:**
+- `deep_dive_settings`: Deep dive mode configuration
+  - `enabled`: Whether deep dive mode is enabled
+  - `auto_screensaver`: Whether auto screensaver is enabled
+  - `idle_timeout_minutes`: Idle timeout in minutes
+  - `bubble_density`: Bubble density (low/normal/high)
+- `screensaver_settings`: Screensaver configuration
+  - `gather_pets_to_center`: Whether to gather pets to center during screensaver
+  - `saved_pet_positions`: Saved original pet positions
 
-## 开发和测试
+## Development and Testing
 
-### 运行测试
+### Running Tests
 
 ```bash
-# 运行所有测试
+# Run all tests
 python -m pytest tests/ -v
 
-# 运行特定测试文件
+# Run specific test file
 python -m pytest tests/test_properties.py -v
 
-# 查看测试覆盖率
+# View test coverage
 python -m pytest tests/ --cov=. --cov-report=html
 ```
 
-### 项目结构
+### Project Structure
 
 ```
 PufferPet/
-├── main.py                      # 应用程序入口
-├── data_manager.py              # 数据管理模块
-├── pet_widget.py                # 主窗口组件
-├── task_window.py               # 任务窗口组件
-├── pet_selector_window.py       # 宠物选择窗口
-├── pet_management_window.py     # 宠物管理窗口（V3.5 新增）
-├── pet_manager.py               # 宠物管理器（V3.5 新增）
-├── reward_manager.py            # 任务奖励管理器（V3.5 新增）
-├── encounter_manager.py         # 奇遇管理器（V3 新增）
-├── visitor_window.py            # 访客窗口（V3 新增）
-├── theme_manager.py             # 主题管理器（V4 新增）
-├── ignore_tracker.py            # 忽视追踪器（V4 新增）
-├── ocean_background.py          # 深潜背景窗口（V5 新增）
-├── idle_watcher.py              # 空闲监视器（V5 新增）
-├── time_manager.py              # 时间管理器（V5.5 新增）
-├── assets/                      # 图像资源（V3.5 新结构）
-│   ├── puffer/                  # 河豚 (Tier 1)
-│   │   ├── baby_idle.png
-│   │   └── adult_idle.png
-│   ├── jelly/                   # 水母 (Tier 1)
-│   │   ├── baby_idle.png
-│   │   └── adult_idle.png
-│   ├── starfish/                # 海星 (Tier 1)
-│   │   ├── baby_idle.png
-│   │   └── adult_idle.png
-│   ├── crab/                    # 螃蟹 (Tier 1)
-│   │   ├── baby_idle.png
-│   │   └── adult_idle.png
-│   ├── octopus/                 # 章鱼 (Tier 2)
-│   │   ├── baby_idle.png
-│   │   └── adult_idle.png
-│   ├── ribbon/                  # 带鱼 (Tier 2)
-│   │   ├── baby_idle.png
-│   │   └── adult_idle.png
-│   ├── sunfish/                 # 翻车鱼 (Tier 2)
-│   │   ├── baby_idle.png
-│   │   └── adult_idle.png
-│   ├── angler/                  # 灯笼鱼 (Tier 2)
-│   │   ├── baby_idle.png
-│   │   └── adult_idle.png
-│   └── deep_sea/                # 深海巨兽 (Tier 3)
-│       ├── blobfish/            # 水滴鱼
-│       │   └── idle.png
-│       ├── ray/                 # 鳐鱼
-│       │   └── idle.png
-│       ├── beluga/              # 白鲸
-│       │   └── idle.png
-│       ├── orca/                # 虎鲸
-│       │   └── idle.png
-│       ├── shark/               # 鲨鱼
-│       │   └── idle.png
-│       └── bluewhale/           # 蓝鲸
-│           └── idle.png
-├── tests/                       # 测试文件
-│   ├── test_data_manager.py
-│   ├── test_properties.py
-│   ├── test_pet_widget.py
-│   ├── test_task_window.py
-│   ├── test_pet_selector.py
-│   ├── test_pet_manager.py          # V3.5 新增
-│   ├── test_pet_management_window.py # V3.5 新增
-│   ├── test_reward_manager.py       # V3.5 新增
-│   ├── test_encounter_manager.py    # V3 新增
-│   ├── test_visitor_window.py       # V3 新增
-│   ├── test_theme_manager.py        # V4 新增
-│   ├── test_ignore_tracker.py       # V4 新增
-│   ├── test_ocean_background.py     # V5 新增
-│   ├── test_idle_watcher.py         # V5 新增
-│   └── test_integration.py
-├── data.json                    # 用户数据（运行时生成）
-├── data.json.v3.backup          # V3 数据备份（V3.5迁移后生成）
-├── data.json.v2.backup          # V2 数据备份（V3迁移后生成）
-├── data.json.v1.backup          # V1 数据备份（V2迁移后生成）
-├── requirements.txt             # Python 依赖
-└── README.md                    # 本文件
+├── main.py                      # Application entry point
+├── data_manager.py              # Data management module
+├── pet_widget.py                # Main window component
+├── task_window.py               # Task window component
+├── pet_selector_window.py       # Pet selection window
+├── pet_management_window.py     # Pet management window (V3.5 new)
+├── pet_manager.py               # Pet manager (V3.5 new)
+├── reward_manager.py            # Task reward manager (V3.5 new)
+├── encounter_manager.py         # Encounter manager (V3 new)
+├── visitor_window.py            # Visitor window (V3 new)
+├── theme_manager.py             # Theme manager (V4 new)
+├── ignore_tracker.py            # Ignore tracker (V4 new)
+├── ocean_background.py          # Deep dive background window (V5 new)
+├── idle_watcher.py              # Idle watcher (V5 new)
+├── time_manager.py              # Time manager (V5.5 new)
+├── assets/                      # Image assets (V3.5 new structure)
+├── tests/                       # Test files
+├── data.json                    # User data (generated at runtime)
+├── requirements.txt             # Python dependencies
+└── README.md                    # This file
 ```
 
-## 技术栈
+## Tech Stack
 
-- **GUI 框架**: PyQt6
-- **数据格式**: JSON
-- **测试框架**: pytest + Hypothesis（基于属性的测试）
-- **输入监听**: pynput（V5 新增，用于屏保空闲检测）
+- **GUI Framework**: PyQt6
+- **Data Format**: JSON
+- **Testing Framework**: pytest + Hypothesis (property-based testing)
+- **Input Monitoring**: pynput (V5 new, for screensaver idle detection)
 
-## 故障排除
+## Troubleshooting
 
-### 问题：宠物显示为彩色方块
+### Issue: Pet displays as colored block
 
-**原因**: 图像文件缺失或路径错误
+**Cause**: Image file missing or path error
 
-**解决方案**: 
-- 检查 `assets/puffer/` 和 `assets/jelly/` 文件夹是否存在
-- 确认图像文件名正确
-- 河豚：`stage1_idle.png`, `stage2_idle.png`, `stage3_idle.png`
-- 水母：`jelly_stage1_idle.png`, `jelly_stage2_idle.png`, `jelly_stage3_idle.png`
+**Solution**: 
+- Check if `assets/puffer/` and `assets/jelly/` folders exist
+- Confirm image filenames are correct
 
-### 问题：数据没有保存
+### Issue: Data not saving
 
-**原因**: 文件权限问题
+**Cause**: File permission issue
 
-**解决方案**: 
-- 确保应用有写入当前目录的权限
-- 检查 `data.json` 文件是否被其他程序占用
+**Solution**: 
+- Ensure app has write permission to current directory
+- Check if `data.json` is being used by another program
 
-### 问题：任务窗口无法打开
+### Issue: Task window won't open
 
-**原因**: 可能是 PyQt6 安装不完整
+**Cause**: Possibly incomplete PyQt6 installation
 
-**解决方案**: 
+**Solution**: 
 ```bash
 pip uninstall PyQt6
 pip install PyQt6
 ```
 
-### 问题：从 V1 升级后数据丢失
+## FAQ
 
-**原因**: 数据迁移可能失败
+### Basic Questions
 
-**解决方案**: 
-- 检查是否存在 `data.json.v1.backup` 备份文件
-- 如果备份存在，可以手动恢复：
-  1. 删除当前的 `data.json`
-  2. 将 `data.json.v1.backup` 重命名为 `data.json`
-  3. 重新启动应用，让迁移再次运行
+#### Q: Can I display multiple pets simultaneously?
 
-### 问题：水母无法解锁
+A: Yes! V3.5 supports displaying up to **5** pets on screen simultaneously. Use the pet management window to summon and dive pets.
 
-**原因**: 河豚等级未达到 3
+#### Q: Will switching pets lose progress?
 
-**解决方案**: 
-- 确保河豚已经达到等级 3（完成 6 个任务）
-- 切换回河豚，完成剩余任务
-- 达到等级 3 后会自动解锁水母并显示通知
+A: No! Each pet has independent progress saved. When switching back, previous level and task progress are preserved.
 
-### 问题：切换宠物后任务进度错误
+#### Q: When do daily tasks reset?
 
-**原因**: 这是正常行为，每个宠物有独立进度
+A: Tasks auto-reset to incomplete state for all pets on first app launch each day.
 
-**说明**: 
-- 每个宠物都有自己的等级和任务进度
-- 切换宠物时，显示的是该宠物自己的进度
-- 这是设计特性，不是 bug
+#### Q: Can I customize task content?
 
-## 许可证
+A: Current version has fixed tasks (drink water, stretch, focus work). Future versions may add customization.
 
-本项目仅供学习和个人使用。
+#### Q: Where is data stored?
 
-## 贡献
+A: Data is stored in `data.json` file in the app directory. You can manually backup this file to save progress.
 
-欢迎提交问题报告和改进建议！
+### Pet Collection Questions
 
-## 常见问题 (FAQ)
+#### Q: How to unlock more pets?
 
-### 基础问题
+A: V3.5 has three unlock methods:
+- **Tier 1 pets** (4 types): Default unlocked (Puffer, Jelly, Starfish, Crab)
+- **Tier 2 pets** (4 types): Via encounter capture or task rewards
+- **Tier 3 pets** (6 types): Via deep sea blind box (need to complete 12 tasks to trigger reward)
 
-#### Q: 我可以同时显示多个宠物吗？
+#### Q: What's the maximum number of pets I can own?
 
-A: 可以！V3.5版本支持同时显示最多**5只**宠物在屏幕上。通过宠物管理窗口可以召唤和潜水宠物。
+A: Inventory cap is **20** pets. If inventory is full, need to release some pets to get new ones.
 
-#### Q: 切换宠物会丢失进度吗？
+### Deep Dive Mode Questions (V5)
 
-A: 不会！每个宠物都有独立的进度保存。切换回来时，之前的等级和任务进度都会保留。
+#### Q: Deep dive mode not showing underwater background?
 
-#### Q: 每日任务什么时候重置？
+A: Check these situations:
+- Confirm `assets/environment/seabed.png` file exists
+- If file doesn't exist, shows deep blue gradient placeholder
+- Check if window is blocked by other fullscreen apps
 
-A: 每天首次启动应用时，所有宠物的任务都会自动重置为未完成状态。
+#### Q: Screensaver not auto-activating?
 
-#### Q: 可以自定义任务内容吗？
+A: Check these situations:
+- Confirm pynput library is correctly installed (`pip install pynput`)
+- On macOS, need to authorize in "System Preferences > Security & Privacy > Accessibility"
+- On Linux, may need to add user to `input` group
+- Confirm no other programs are continuously generating mouse/keyboard events
 
-A: 当前版本的任务是固定的（喝水、伸懒腰、专注工作）。未来版本可能会添加自定义功能。
+## License
 
-#### Q: 数据存储在哪里？
+This project is for learning and personal use only.
 
-A: 数据存储在应用目录下的 `data.json` 文件中。你可以手动备份这个文件来保存进度。
+## Contributing
 
-### 宠物收集问题
-
-#### Q: 如何解锁更多宠物？
-
-A: V3.5版本有三种解锁方式：
-- **Tier 1宠物**（4种）：默认解锁（河豚、水母、海星、螃蟹）
-- **Tier 2宠物**（4种）：通过奇遇捕获或任务奖励获得
-- **Tier 3宠物**（6种）：通过深海盲盒获得（需要完成12个任务触发奖励）
-
-#### Q: 我最多可以拥有多少只宠物？
-
-A: 库存上限是**20只**宠物。如果库存满了，需要放生一些宠物才能获得新宠物。
-
-#### Q: 如何获得Tier 3深海巨兽？
-
-A: 完成以下步骤：
-1. 累计完成12个任务（跨越所有宠物和天数）
-2. 触发奖励判定，有30%概率获得深海盲盒
-3. 盲盒会立即开启，按权重随机抽取一只Tier 3宠物
-4. 详细指南请参考"如何获得深海巨兽"章节
-
-### 库存管理问题
-
-#### Q: 如何召唤库存中的宠物？
-
-A: 
-1. 右键点击任意宠物，选择"管理宠物"
-2. 在库存列表中选择要召唤的宠物
-3. 点击"召唤"按钮
-4. 如果活跃宠物少于5只，宠物会出现在屏幕上
-
-#### Q: 如何让宠物潜水（收回库存）？
-
-A: 
-1. 打开宠物管理窗口
-2. 在活跃列表中选择要潜水的宠物
-3. 点击"潜水"按钮
-4. 宠物窗口会关闭，宠物回到库存
-
-#### Q: 放生宠物后可以恢复吗？
-
-A: 不可以！放生操作是永久性的，宠物的所有数据会被删除。放生前请三思。
-
-#### Q: 库存满了怎么办？
-
-A: 你需要放生一些不需要的宠物：
-1. 优先放生低等级的重复宠物
-2. 保留稀有的Tier 2和Tier 3宠物
-3. 为新获得的宠物预留空间
-
-### 任务奖励问题
-
-#### Q: 累计任务数会重置吗？
-
-A: 不会！累计任务数会持续增长，跨越所有天数和所有宠物。只有在获得奖励后才会重置为0。
-
-#### Q: 我完成了12个任务，但没有获得盲盒？
-
-A: 这是正常的。奖励判定有70%概率获得Tier 2宠物，只有30%概率获得盲盒。继续完成任务，下次可能就会获得盲盒！
-
-#### Q: 如何查看我的累计任务数？
-
-A: 累计任务数存储在data.json文件的`reward_system.cumulative_tasks_completed`字段中。你可以打开文件查看。
-
-### Tier 3宠物问题
-
-#### Q: Tier 3宠物可以升级吗？
-
-A: 不可以。Tier 3深海巨兽没有等级系统，无法通过完成任务升级。它们主要用于装饰桌面和展示收集成就。
-
-#### Q: 为什么我的蓝鲸这么大？
-
-A: Tier 3宠物会根据体型自动缩放。蓝鲸是最大的生物，缩放倍率为5.0x，所以显示得特别大。
-
-#### Q: 我可以拥有多只相同的Tier 3宠物吗？
-
-A: 可以！盲盒抽取是完全随机的，你可能会抽到重复的宠物。你可以选择保留或放生重复的宠物。
-
-### 深潜模式问题 (V5)
-
-#### Q: 深潜模式没有显示海底背景？
-
-A: 检查以下情况：
-- 确认 `assets/environment/seabed.png` 文件存在
-- 如果文件不存在，会显示深蓝色渐变占位符
-- 检查窗口是否被其他全屏应用遮挡
-
-#### Q: 屏保没有自动激活？
-
-A: 检查以下情况：
-- 确认 pynput 库已正确安装（`pip install pynput`）
-- 在 macOS 上，需要在"系统偏好设置 > 安全性与隐私 > 辅助功能"中授权
-- 在 Linux 上，可能需要将用户添加到 `input` 组
-- 确认没有其他程序在持续产生鼠标/键盘事件
-
-#### Q: 宠物在屏保模式下没有聚拢到中央？
-
-A: 这取决于激活方式：
-- **自动激活（5分钟空闲）**: 宠物会聚拢到中央
-- **手动激活（菜单开启）**: 宠物保持原位
-- 这是设计特性，手动模式让你可以在任意位置欣赏海底背景
-
-#### Q: 气泡/鬼火粒子没有显示？
-
-A: 粒子系统是深潜模式的一部分，确认：
-- 深潜模式已正确激活
-- 海底背景窗口正在显示
-- 如果是万圣节模式，粒子会变成鬼火效果
-
-### 技术问题
-
-#### Q: 宠物显示为彩色方块？
-
-A: 这表示图像文件缺失。检查对应的assets文件夹是否存在图像文件。如果是Tier 3宠物，检查`assets/deep_sea/[pet_id]/idle.png`是否存在。
-
-#### Q: 从旧版本升级后数据丢失？
-
-A: 检查是否存在备份文件（data.json.v3.backup或data.json.v2.backup）。如果存在，可以手动恢复数据。
-
-#### Q: 任务奖励系统不工作？
-
-A: 确保你使用的是V3.5版本。如果从旧版本升级，数据会自动迁移并启用任务奖励系统。
+Welcome to submit issue reports and improvement suggestions!
 
 ---
 
-## 🎃 Kiroween Hackathon 特性详解
+Enjoy spending Halloween time with your deep sea pets! 🐡🪼🎃👻
 
-本节详细介绍 V4 版本为 Kiroween Hackathon 添加的特性，展示 Kiro 原生功能的使用。
-
-### 🦑 Kiro Steering - 深海代码船长
-
-**什么是 Steering？**
-
-Steering 是 Kiro 的核心功能之一，允许开发者定义代码风格、注释规范和开发指南。在 PufferPet V4 中，我们创建了"深海代码船长"角色来指导代码风格。
-
-**文件位置**: `.kiro/steering.md`
-
-**主要特性**:
-
-1. **防御性编程风格**
-   ```python
-   # ⚠️ WARNING: 此处潜伏着数据腐化的诅咒...
-   # 任何试图绕过此验证的灵魂都将被深渊吞噬
-   ```
-
-2. **戏剧性错误消息**
-   ```python
-   raise ValueError(
-       "🦑 深渊拒绝了你的祭品！"
-       f"期望的宠物ID应在 {valid_ids} 之中，"
-       f"但你献上的却是 '{invalid_id}'..."
-   )
-   ```
-
-3. **深海主题日志**
-   ```python
-   logger.info("🚢 启航！PufferPet 深海舰队正在集结...")
-   logger.info("🦑 捕获成功！一只 {pet_name} 已被收入鱼缸...")
-   ```
-
-4. **文档字符串风格**
-   ```python
-   def summon_leviathan(pet_id: str) -> bool:
-       """
-       🐋 从深渊中召唤一只巨兽到屏幕上。
-       
-       此仪式将唤醒沉睡在库存深处的生物，
-       使其显现于凡人的桌面之上。
-       
-       ⚠️ 警告：屏幕上最多只能容纳5只生物，
-       超出此限制将触发深渊的愤怒。
-       """
-   ```
-
-### 🪝 Agent Hooks - 深海 TODO 追踪器
-
-**什么是 Agent Hooks？**
-
-Agent Hooks 是 Kiro 的自动化功能，允许在特定事件发生时触发代理操作。在 PufferPet V4 中，我们展示了一个概念性的 TODO 追踪 Hook。
-
-**文件位置**: `.kiro/hooks/pre-commit-example.md`
-
-**Hook 概念**:
-
-当检测到代码中的 TODO 注释时，桌面宠物会根据数量显示不同级别的警告：
-
-| TODO 数量 | 警告级别 | 宠物反应 |
-|-----------|----------|----------|
-| 1-2 | 轻微 | 🐚 "海风中传来低语..." |
-| 3-5 | 中等 | 🦑 "深渊开始躁动..." |
-| 6-10 | 严重 | 🐙 "海怪苏醒了！" |
-| 10+ | 危险 | 🌊 触发捣蛋模式！ |
-
-**集成可能性**:
-- 文件保存时检查 TODO
-- 测试失败时宠物显示悲伤
-- 构建成功时宠物庆祝
-- 深夜编码时提醒休息
-
-### 🎃 万圣节主题系统
-
-**主题管理器** (`theme_manager.py`)
-
-V4 版本引入了完整的主题系统，支持万圣节模式：
-
-1. **主题模式切换**
-   - `normal`: 普通模式
-   - `halloween`: 万圣节模式
-
-2. **图像加载优先级**
-   ```
-   万圣节模式下的图像加载顺序：
-   1. 尝试加载 halloween_idle.png
-   2. 如果不存在，加载普通图像并应用幽灵滤镜
-   3. 如果都不存在，显示占位符
-   ```
-
-3. **幽灵滤镜效果**
-   - 透明度设置为 0.6
-   - 添加绿色或紫色光晕
-   - 营造幽灵般的视觉效果
-
-4. **暗黑主题样式**
-   ```css
-   /* 万圣节暗黑主题 */
-   background-color: #1a1a2e;  /* 深紫黑色背景 */
-   color: #00ff88;             /* 幽灵绿文字 */
-   border: 2px solid #ff6600;  /* 南瓜橙边框 */
-   ```
-
-### 😡 捣蛋机制 - 不给糖就捣蛋！
-
-**忽视追踪器** (`ignore_tracker.py`)
-
-V4 版本的核心万圣节玩法：
-
-1. **忽视检测**
-   - 系统追踪最后一次用户交互时间
-   - 用户点击任何宠物会重置计时器
-
-2. **捣蛋模式触发**
-   - 连续 1 小时未点击任何宠物
-   - 所有活跃宠物进入愤怒状态
-   - 显示"不给糖就捣蛋！"通知
-
-3. **愤怒状态表现**
-   - 尝试加载 `angry_idle.png` 图像
-   - 如果没有愤怒图像，开始抖动动画
-   - 抖动：每100ms随机移动±10像素
-
-4. **安抚机制**
-   - 点击愤怒的宠物可以安抚它
-   - 安抚后宠物恢复正常状态
-   - 所有宠物被安抚后退出捣蛋模式
-
-### 📁 项目结构 - Kiro 原生功能
-
-```
-PufferPet/
-├── .kiro/                           # 🌟 Kiro 原生功能目录
-│   ├── steering.md                  # 🦑 深海代码船长 Steering 规则
-│   ├── hooks/                       # 🪝 Agent Hooks 目录
-│   │   └── pre-commit-example.md    # TODO 追踪 Hook 示例
-│   └── specs/                       # 📋 功能规格文档
-│       └── puffer-pet/
-│           ├── requirements.md      # 需求文档
-│           ├── design.md            # 设计文档
-│           └── tasks.md             # 任务清单
-├── theme_manager.py                 # 🎃 万圣节主题管理器 (V4)
-├── ignore_tracker.py                # 😡 忽视追踪/捣蛋机制 (V4)
-├── ocean_background.py              # 🌊 深潜背景窗口 (V5)
-├── idle_watcher.py                  # 😴 空闲监视器/屏保 (V5)
-├── time_manager.py                  # 🌙 时间管理器/昼夜循环 (V5.5)
-├── pet_widget.py                    # 宠物窗口（支持愤怒/睡觉状态）
-├── pet_manager.py                   # 宠物管理器
-├── reward_manager.py                # 任务奖励管理器
-├── encounter_manager.py             # 奇遇管理器
-├── visitor_window.py                # 访客窗口
-├── data_manager.py                  # 数据管理器
-├── task_window.py                   # 任务窗口
-├── pet_selector_window.py           # 宠物选择窗口
-├── pet_management_window.py         # 宠物管理窗口
-├── main.py                          # 应用入口
-├── assets/                          # 图像资源
-│   ├── environment/                 # 🌊 环境图像 (V5)
-│   │   └── seabed.png              # 海底背景
-│   ├── puffer/
-│   │   ├── baby_idle.png
-│   │   ├── adult_idle.png
-│   │   ├── halloween_idle.png       # 🎃 万圣节图像 (可选)
-│   │   ├── angry_idle.png           # 😡 愤怒图像 (可选)
-│   │   └── sleep_idle.png           # 😴 睡觉图像 (V5, 可选)
-│   ├── jelly/
-│   │   ├── ...
-│   │   ├── halloween_idle.png       # 🎃 万圣节图像 (可选)
-│   │   ├── angry_idle.png           # 😡 愤怒图像 (可选)
-│   │   └── sleep_idle.png           # 😴 睡觉图像 (V5, 可选)
-│   └── deep_sea/                    # Tier 3 深海巨兽
-│       └── ...
-└── tests/                           # 测试文件
-    ├── test_theme_manager.py        # 主题管理器测试
-    ├── test_ignore_tracker.py       # 忽视追踪器测试
-    ├── test_ocean_background.py     # 深潜背景测试 (V5)
-    ├── test_idle_watcher.py         # 空闲监视器测试 (V5)
-    ├── test_time_manager.py         # 时间管理器测试 (V5.5)
-    └── ...
-```
-
-### 🎯 功能演示指南
-
-#### 快速演示流程（5-10分钟）
-
-**第一步：启动应用**
-```bash
-python main.py
-```
-- 观察万圣节暗黑主题自动应用
-- 注意宠物的幽灵滤镜效果（如果没有万圣节图像）
-
-**第二步：展示 Kiro Steering**
-- 打开 `.kiro/steering.md` 查看深海代码船长规则
-- 打开任意 Python 文件，展示戏剧性的注释风格
-- 展示错误消息的深海主题
-
-**第三步：展示 Agent Hooks 概念**
-- 打开 `.kiro/hooks/pre-commit-example.md`
-- 解释 Hook 与桌面宠物的集成可能性
-- 展示 TODO 追踪的概念设计
-
-**第四步：体验万圣节主题**
-- 右键点击宠物，观察暗黑风格的菜单
-- 打开任务窗口，查看暗黑主题UI
-- 如果有万圣节图像，展示主题切换效果
-
-**第五步：触发捣蛋机制**
-- 等待1小时（或修改代码缩短时间用于演示）
-- 观察宠物进入愤怒状态
-- 点击愤怒的宠物进行安抚
-- 展示"不给糖就捣蛋！"通知
-
-**第六步：展示完整生态系统**
-- 完成任务，展示奖励系统
-- 打开宠物管理窗口，展示库存管理
-- 召唤/潜水宠物，展示多宠物显示
-
-### 🏆 黑客松评分对照
-
-#### Implementation Score (实现分数)
-- ✅ **Kiro Steering**: `.kiro/steering.md` 定义深海代码船长风格
-- ✅ **Agent Hooks**: `.kiro/hooks/` 展示 TODO 追踪概念
-- ✅ **完整目录结构**: `.kiro/` 目录包含所有必要文件
-- ✅ **防御性编程**: 所有模块都有完善的错误处理
-- ✅ **详细文档**: 戏剧性的文档字符串和注释
-
-#### Creativity Score (创意分数)
-- ✅ **万圣节主题**: 完整的暗黑主题皮肤系统
-- ✅ **幽灵滤镜**: 自动应用的视觉效果
-- ✅ **捣蛋机制**: "不给糖就捣蛋"互动玩法
-- ✅ **深海叙事**: 诅咒、深渊、海怪主题
-- ✅ **生态系统**: 14种海洋生物的完整收集系统
-
-#### Polish Score (完成度分数)
-- ✅ **测试覆盖**: 完整的单元测试和属性测试
-- ✅ **详细文档**: 全面的 README 和代码注释
-- ✅ **用户体验**: 流畅的交互和视觉反馈
-- ✅ **错误处理**: 优雅的降级和恢复机制
-- ✅ **演示准备**: 完整的演示指南
-
----
-
-## 🎃 万圣节图像资源说明
-
-### 可选的万圣节图像
-
-为了获得最佳的万圣节体验，可以为宠物添加以下可选图像：
-
-| 图像文件 | 用途 | 说明 |
-|----------|------|------|
-| `halloween_idle.png` | 万圣节主题图像 | 万圣节模式下优先加载 |
-| `angry_idle.png` | 愤怒状态图像 | 捣蛋模式下显示 |
-
-**图像放置位置**:
-```
-assets/
-├── puffer/
-│   ├── halloween_idle.png  # 河豚万圣节版
-│   └── angry_idle.png      # 河豚愤怒版
-├── jelly/
-│   ├── halloween_idle.png  # 水母万圣节版
-│   └── angry_idle.png      # 水母愤怒版
-└── ...
-```
-
-### 幽灵滤镜回退
-
-如果没有万圣节图像，系统会自动应用幽灵滤镜：
-- 透明度降低到 60%
-- 添加绿色/紫色光晕效果
-- 营造幽灵般的视觉效果
-
-这确保了即使没有专门的万圣节图像，所有宠物在万圣节模式下也能有独特的外观。
-
----
-
-享受和你的深海宠物们一起度过的万圣节时光！ 🐡🪼🎃👻
-
-*"愿深渊的智慧指引你的代码，愿海神的祝福保护你的应用。"* — 深海代码船长 🦑
-
----
-
-## 🌊 深潜模式详解 (V5 新增)
-
-V5 版本引入了沉浸式的深潜模式，让你的桌面变成美丽的海底世界！
-
-### 🌊 什么是深潜模式？
-
-深潜模式会在你的桌面上覆盖一层全屏的海底背景，让你的宠物们仿佛真的在海底游泳。这个模式可以：
-
-- **隐藏桌面图标**: 海底背景覆盖在桌面图标之上
-- **保持宠物可见**: 宠物窗口始终在背景之上
-- **营造氛围**: 气泡粒子从底部上升，模拟真实的水下环境
-
-### 🫧 气泡粒子系统
-
-深潜模式包含一个美丽的气泡粒子系统：
-
-| 特性 | 普通模式 | 万圣节模式 |
-|------|----------|------------|
-| 粒子类型 | 🫧 气泡 | 👻 鬼火 |
-| 颜色 | 蓝白色半透明 | 绿色/紫色发光 |
-| 运动 | 从底部上升 | 从底部上升 |
-| 效果 | 左右轻微摇摆 | 左右轻微摇摆 |
-
-### 🎨 背景滤镜
-
-深潜模式会在海底背景上叠加滤镜：
-
-| 主题模式 | 滤镜颜色 | 效果 |
-|----------|----------|------|
-| 普通模式 | `rgba(0, 50, 100, 0.3)` | 深蓝色海水效果 |
-| 万圣节模式 | `rgba(50, 0, 50, 0.4)` | 暗紫色诡异效果 |
-
-### 🖼️ 背景图像
-
-深潜模式使用 `assets/environment/seabed.png` 作为海底背景。如果图像不存在，会显示深蓝色渐变占位符。
-
----
-
-## 😴 屏保功能详解 (V5 新增)
-
-V5 版本引入了怀旧风格的屏保功能，让你的宠物在你离开时也能休息！
-
-### ⏰ 自动激活
-
-屏保功能会监听你的鼠标和键盘活动：
-
-1. **空闲检测**: 系统持续监听鼠标移动和键盘敲击
-2. **5分钟阈值**: 如果5分钟内没有任何操作，自动激活屏保
-3. **深潜模式**: 屏保激活时会自动开启深潜模式
-
-### 🐠 宠物聚拢
-
-当屏保自动激活时，所有活跃的宠物会：
-
-1. **保存位置**: 记录每只宠物的当前位置
-2. **移动到中央**: 宠物们会聚拢到屏幕中央区域
-3. **进入休息状态**: 尝试显示睡觉图像或轻微浮动动画
-
-### 🖱️ 智能唤醒
-
-当检测到用户活动时：
-
-1. **立即响应**: 鼠标移动或键盘敲击会立即触发唤醒
-2. **关闭深潜**: 海底背景窗口关闭
-3. **恢复位置**: 宠物们返回到原来的位置
-4. **重置计时**: 空闲计时器重新开始
-
-### 😴 睡觉图像
-
-屏保模式下，宠物会尝试加载睡觉图像：
-
-| 图像文件 | 用途 | 回退方案 |
-|----------|------|----------|
-| `sleep_idle.png` | 普通睡觉图像 | 普通idle图像 + 浮动动画 |
-| `halloween_sleep.png` | 万圣节睡觉图像 | 普通睡觉图像 + 幽灵滤镜 |
-
----
-
-## 🎃 深潜模式万圣节联动 (V5 新增)
-
-深潜模式与万圣节主题完美联动，提供独特的视觉体验！
-
-### 🌙 万圣节深潜效果
-
-当 `theme_mode` 设置为 `halloween` 时，深潜模式会有以下变化：
-
-| 元素 | 普通模式 | 万圣节模式 |
-|------|----------|------------|
-| 背景颜色 | 深蓝色 | 暗紫色/黑色 |
-| 粒子效果 | 🫧 气泡 | 👻 鬼火 |
-| 粒子颜色 | 蓝白色 | 绿色/紫色发光 |
-| 滤镜 | 蓝色海水 | 紫色诡异 |
-| 宠物图像 | 普通/睡觉 | 万圣节/幽灵滤镜 |
-
-### 🔄 实时切换
-
-主题切换时，深潜模式会实时更新：
-
-1. **背景滤镜**: 立即切换颜色
-2. **粒子效果**: 气泡变鬼火或反之
-3. **宠物图像**: 重新加载对应主题的图像
-
----
-
-## 📋 菜单和快捷键指南 (V5 新增)
-
-### 🖱️ 宠物窗口右键菜单
-
-在任意宠物窗口上右键点击，可以看到以下选项：
-
-| 菜单选项 | 功能 | 说明 |
-|----------|------|------|
-| 查看任务 | 打开任务窗口 | 查看和完成每日任务 |
-| 切换宠物 | 打开宠物选择窗口 | 切换当前显示的宠物 |
-| 管理宠物 | 打开宠物管理窗口 | 召唤、潜水、放生宠物 |
-| 放生 | 放生当前宠物 | 永久删除宠物（需确认） |
-
-### 🔔 托盘图标右键菜单
-
-在系统托盘图标上右键点击，可以看到以下选项：
-
-| 菜单选项 | 功能 | 说明 |
-|----------|------|------|
-| 深潜模式 | 开启/关闭深潜模式 | 手动控制海底背景 |
-| 设置 (Settings) | 打开设置子菜单 | V5.5 新增 |
-| ├─ 跟随系统时间 | 自动昼夜切换 | 默认开启，根据系统时间切换 |
-| └─ 切换昼夜 | 手动切换昼夜 | 仅在关闭自动同步时可用 |
-| 退出 | 关闭应用 | 完全退出 PufferPet |
-
-### ⌨️ 快捷操作
-
-| 操作 | 效果 |
-|------|------|
-| 左键点击宠物 | 安抚愤怒的宠物 / 重置忽视计时器 |
-| 右键点击宠物 | 打开功能菜单 |
-| 左键点击访客 | 捕获稀有生物 |
-| 鼠标移动/键盘敲击 | 唤醒屏保模式 |
-
-### 🎮 深潜模式控制
-
-| 激活方式 | 宠物行为 | 退出方式 |
-|----------|----------|----------|
-| 手动开启（菜单） | 宠物保持原位 | 菜单关闭 / 用户活动 |
-| 自动激活（屏保） | 宠物聚拢到中央 | 鼠标移动 / 键盘敲击 |
-
-**注意**: 手动开启深潜模式时，宠物不会自动聚拢到中央，这是为了让你可以在任意位置欣赏海底背景。
-
----
-
-## 📦 依赖项说明
-
-### 核心依赖
-
-| 依赖包 | 版本要求 | 用途 |
-|--------|----------|------|
-| PyQt6 | >=6.4.0 | GUI框架，窗口和界面渲染 |
-| pytest | >=7.0.0 | 测试框架 |
-| hypothesis | >=6.0.0 | 基于属性的测试 |
-| pynput | >=1.7.6 | 监听鼠标/键盘活动（V5新增） |
-
-### 安装依赖
-
-```bash
-pip install -r requirements.txt
-```
-
-### pynput 说明 (V5 新增)
-
-`pynput` 库用于监听全局的鼠标和键盘事件，实现屏保功能的空闲检测：
-
-- **鼠标监听**: 检测鼠标移动和点击
-- **键盘监听**: 检测键盘按键
-- **跨平台**: 支持 Windows、macOS、Linux
-
-**注意**: 在某些系统上，pynput 可能需要额外的权限：
-- **macOS**: 需要在"系统偏好设置 > 安全性与隐私 > 辅助功能"中授权
-- **Linux**: 可能需要将用户添加到 `input` 组
-
----
-
-## 🖼️ V5 图像资源
-
-### 新增目录结构
-
-```
-assets/
-├── environment/                 # 🌊 环境图像 (V5 新增)
-│   └── seabed.png              # 海底背景图像
-├── puffer/
-│   ├── baby_idle.png
-│   ├── adult_idle.png
-│   ├── halloween_idle.png      # 🎃 万圣节图像
-│   ├── angry_idle.png          # 😡 愤怒图像
-│   └── sleep_idle.png          # 😴 睡觉图像 (V5 新增，可选)
-├── jelly/
-│   ├── ...
-│   └── sleep_idle.png          # 😴 睡觉图像 (V5 新增，可选)
-└── ...
-```
-
-### 可选的睡觉图像
-
-为了获得最佳的屏保体验，可以为宠物添加睡觉图像：
-
-| 图像文件 | 用途 | 回退方案 |
-|----------|------|----------|
-| `sleep_idle.png` | 屏保模式下显示 | 普通idle图像 + 浮动动画 |
-| `halloween_sleep.png` | 万圣节屏保模式 | sleep_idle.png + 幽灵滤镜 |
-
-如果没有睡觉图像，宠物会显示普通图像并添加轻微的上下浮动动画，模拟睡眠状态。
-
----
-
-## 🌙 动态昼夜循环详解 (V5.5 新增)
-
-V5.5 版本引入了动态昼夜循环系统，让你的海洋世界与现实时间同步！
-
-### 🌅 什么是昼夜循环？
-
-昼夜循环系统会根据你的系统时间自动切换白天和黑夜模式：
-
-| 时间段 | 模式 | 视觉效果 |
-|--------|------|----------|
-| 06:00 - 18:00 | ☀️ 白天模式 | 正常主题，明亮的海洋 |
-| 18:00 - 06:00 | 🌙 黑夜模式 | 万圣节主题，幽暗的深海 |
-
-### 🎨 昼夜模式与万圣节主题的关系
-
-V5.5 的一个优雅设计是：**黑夜模式复用万圣节主题**。这意味着：
-
-- **白天模式** = `theme_mode: "normal"`
-  - 宠物显示正常图像
-  - 深潜背景使用浅蓝色滤镜
-  - 粒子效果为普通气泡
-  - UI使用标准样式
-
-- **黑夜模式** = `theme_mode: "halloween"`
-  - 宠物显示万圣节图像或应用幽灵滤镜
-  - 深潜背景使用暗紫色滤镜
-  - 粒子效果为发光鬼火
-  - UI使用暗黑主题
-
-**设计优势**：
-- ✅ 代码复用最大化，无需额外开发
-- ✅ 黑夜自然带有神秘氛围
-- ✅ 万圣节资源在日常使用中也能发挥作用
-
-### ⏰ 时间同步机制
-
-时间管理器每分钟检查一次系统时间：
-
-```
-系统时间检查（每分钟）
-    ↓
-判断当前时段
-    ↓
-├─ 06:00-18:00 → 白天模式
-└─ 18:00-06:00 → 黑夜模式
-    ↓
-与当前模式比较
-    ↓
-├─ 相同 → 无操作
-└─ 不同 → 触发模式切换
-    ↓
-更新所有视觉效果
-```
-
-### ⚙️ 设置菜单使用指南
-
-V5.5 在托盘图标右键菜单中添加了"设置"子菜单：
-
-#### 📋 设置菜单结构
-
-```
-托盘图标右键菜单
-├── 深潜模式
-├── 设置 (Settings) ←── V5.5 新增
-│   ├── ☑️ 跟随系统时间 (Auto Day/Night)
-│   └── 切换昼夜 (Toggle Day/Night)
-└── 退出
-```
-
-#### 🔧 设置选项说明
-
-| 选项 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| 跟随系统时间 | 复选框 | ☑️ 开启 | 是否自动根据系统时间切换昼夜 |
-| 切换昼夜 | 按钮 | - | 手动在白天/黑夜模式间切换 |
-
-#### 📝 使用场景
-
-**场景1：默认自动模式**
-- 保持"跟随系统时间"开启
-- 应用会自动在06:00切换到白天，18:00切换到黑夜
-- "切换昼夜"选项显示为禁用状态
-
-**场景2：手动控制模式**
-1. 取消勾选"跟随系统时间"
-2. "切换昼夜"选项变为可用
-3. 点击"切换昼夜"可以手动切换白天/黑夜
-4. 手动设置的模式会被保存
-
-**场景3：白天想体验黑夜效果**
-1. 取消勾选"跟随系统时间"
-2. 点击"切换昼夜"切换到黑夜模式
-3. 享受幽暗的深海氛围
-4. 想恢复自动时，重新勾选"跟随系统时间"
-
-### 🎨 视觉效果对比
-
-#### 宠物显示
-
-| 元素 | 白天模式 | 黑夜模式 |
-|------|----------|----------|
-| 宠物图像 | 正常图像 | 万圣节图像 / 幽灵滤镜 |
-| 图像透明度 | 100% | 60%（幽灵滤镜） |
-| 光晕效果 | 无 | 绿色/紫色光晕 |
-
-#### 深潜背景
-
-| 元素 | 白天模式 | 黑夜模式 |
-|------|----------|----------|
-| 背景图像 | seabed_day.png | seabed_night.png |
-| 背景回退 | 深蓝色渐变 | 白天背景 + 紫色滤镜 |
-| 滤镜颜色 | `rgba(0, 50, 100, 0.3)` | `rgba(50, 0, 50, 0.4)` |
-| 粒子效果 | 🫧 蓝白色气泡 | 👻 绿紫色鬼火 |
-
-#### UI界面
-
-| 元素 | 白天模式 | 黑夜模式 |
-|------|----------|----------|
-| 背景色 | 标准浅色 | 深紫黑色 `#1a1a2e` |
-| 文字色 | 标准深色 | 幽灵绿 `#00ff88` |
-| 边框色 | 标准灰色 | 南瓜橙 `#ff6600` |
-
-### 💾 设置持久化
-
-昼夜设置会自动保存到 `data.json` 文件：
-
-```json
-{
-  "version": 5.5,
-  "day_night_settings": {
-    "auto_time_sync": true,
-    "current_mode": "day"
-  },
-  // ... 其他字段
-}
-```
-
-**字段说明**：
-- `auto_time_sync`: 是否跟随系统时间（true/false）
-- `current_mode`: 当前模式（"day" 或 "night"）
-
-**启动时行为**：
-- 如果 `auto_time_sync` 为 true：根据当前系统时间设置模式
-- 如果 `auto_time_sync` 为 false：加载上次保存的 `current_mode`
-
-### 🔄 与深潜模式的联动
-
-昼夜循环与深潜模式完美联动：
-
-1. **深潜模式开启时**：
-   - 背景滤镜根据当前昼夜模式变化
-   - 粒子效果根据当前昼夜模式变化
-   - 模式切换时实时更新
-
-2. **屏保激活时**：
-   - 宠物睡觉图像根据当前昼夜模式选择
-   - 黑夜模式下尝试加载 `halloween_sleep.png`
-
-3. **模式切换时**：
-   - 深潜背景实时更新滤镜颜色
-   - 粒子从气泡变鬼火或反之
-   - 宠物图像重新加载
-
-### 💡 使用技巧
-
-1. **享受自然节奏**：保持默认的自动同步，让海洋世界与现实时间同步
-2. **夜间工作者**：如果你是夜猫子，可以关闭自动同步，手动设置白天模式
-3. **氛围体验**：想要神秘氛围时，手动切换到黑夜模式
-4. **节省资源**：昼夜检查每分钟一次，对系统资源影响极小
-
-### ❓ 常见问题
-
-**Q: 为什么黑夜模式和万圣节模式看起来一样？**
-
-A: 这是设计特性！V5.5 复用万圣节主题作为黑夜模式，这样：
-- 万圣节资源得到日常使用
-- 黑夜自然带有神秘氛围
-- 代码更简洁，维护更容易
-
-**Q: 我可以在白天使用万圣节主题吗？**
-
-A: 可以！关闭"跟随系统时间"，然后手动切换到黑夜模式即可。
-
-**Q: 模式切换时会有延迟吗？**
-
-A: 不会。模式切换是即时的，所有视觉效果会立即更新。
-
-**Q: 设置会在重启后保留吗？**
-
-A: 会的！所有昼夜设置都会保存到 `data.json` 文件中。
-
----
-
-## 🖼️ V5.5 图像资源
-
-### 新增背景图像
-
-V5.5 支持昼夜不同的背景图像：
-
-```
-assets/
-└── environment/
-    ├── seabed.png          # 通用海底背景（V5）
-    ├── seabed_day.png      # 白天海底背景（V5.5，可选）
-    └── seabed_night.png    # 黑夜海底背景（V5.5，可选）
-```
-
-### 背景图像加载优先级
-
-**白天模式**：
-1. 尝试加载 `seabed_day.png`
-2. 回退到 `seabed.png`
-3. 回退到深蓝色渐变占位符
-
-**黑夜模式**：
-1. 尝试加载 `seabed_night.png`
-2. 回退到白天背景 + 紫色滤镜
-3. 回退到深紫色渐变占位符
-
-### 智能回退机制
-
-V5.5 的设计确保即使没有专门的昼夜背景图像，系统也能正常工作：
-
-- **无 seabed_night.png**：自动对白天背景应用紫色滤镜
-- **无 seabed_day.png**：使用通用 seabed.png
-- **无任何背景**：使用渐变色占位符
+*"May the wisdom of the abyss guide your code, may the blessing of the sea god protect your application."* — Deep Sea Code Captain 🦑
