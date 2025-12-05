@@ -1,0 +1,20 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.12.4, pytest-9.0.1, pluggy-1.6.0
+rootdir: C:\Users\ZERONELYSS\Desktop\PufferPet
+plugins: anyio-4.9.0, hypothesis-6.148.5
+collected 117 items
+
+tests\test_ui_style.py ..........................                        [ 22%]
+tests\test_theme_manager.py ..............F
+
+================================== FAILURES ===================================
+_________ TestThemeManagerImageLoading.test_placeholder_tier3_larger __________
+tests\test_theme_manager.py:305: in test_placeholder_tier3_larger
+    assert pixmap.width() == 100
+E   assert 50 == 100
+E    +  where 50 = <built-in method width of QPixmap object at 0x000001D392CE0750>()
+E    +    where <built-in method width of QPixmap object at 0x000001D392CE0750> = <PyQt6.QtGui.QPixmap object at 0x000001D392CE0750>.width
+=========================== short test summary info ===========================
+FAILED tests/test_theme_manager.py::TestThemeManagerImageLoading::test_placeholder_tier3_larger
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!
+================== 1 failed, 40 passed in 148.88s (0:02:28) ===================

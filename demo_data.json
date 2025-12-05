@@ -1,0 +1,98 @@
+{
+  "version": 4.0,
+  "theme_mode": "halloween",
+  "current_pet_id": "puffer",
+  "unlocked_pets": ["puffer", "jelly", "starfish", "crab", "octopus", "blobfish"],
+  "active_pets": ["puffer", "jelly", "blobfish"],
+  "pet_tiers": {
+    "tier1": ["puffer", "jelly", "starfish", "crab"],
+    "tier2": ["octopus", "ribbon", "sunfish", "angler"],
+    "tier3": ["blobfish", "ray", "beluga", "orca", "shark", "bluewhale"]
+  },
+  "tier3_scale_factors": {
+    "blobfish": 1.5,
+    "ray": 2.0,
+    "beluga": 2.5,
+    "orca": 3.0,
+    "shark": 3.5,
+    "bluewhale": 5.0
+  },
+  "tier3_weights": {
+    "blobfish": 0.40,
+    "ray": 0.25,
+    "beluga": 0.15,
+    "orca": 0.10,
+    "shark": 0.08,
+    "bluewhale": 0.02
+  },
+  "reward_system": {
+    "cumulative_tasks_completed": 11,
+    "reward_threshold": 12,
+    "tier2_unlock_probability": 0.7,
+    "lootbox_probability": 0.3
+  },
+  "inventory_limits": {
+    "max_inventory": 20,
+    "max_active": 5
+  },
+  "ignore_tracker": {
+    "last_interaction_time": null,
+    "ignore_threshold_seconds": 3600,
+    "mischief_mode_active": false
+  },
+  "halloween_settings": {
+    "ghost_filter_enabled": true,
+    "ghost_opacity": 0.6,
+    "ghost_glow_color": "green",
+    "dark_theme_enabled": true
+  },
+  "pets_data": {
+    "puffer": {
+      "level": 3,
+      "tasks_completed_today": 2,
+      "last_login_date": "2024-12-03",
+      "task_states": [true, true, false],
+      "is_angry": false
+    },
+    "jelly": {
+      "level": 2,
+      "tasks_completed_today": 1,
+      "last_login_date": "2024-12-03",
+      "task_states": [true, false, false],
+      "is_angry": false
+    },
+    "starfish": {
+      "level": 1,
+      "tasks_completed_today": 0,
+      "last_login_date": "2024-12-03",
+      "task_states": [false, false, false],
+      "is_angry": false
+    },
+    "crab": {
+      "level": 1,
+      "tasks_completed_today": 0,
+      "last_login_date": "2024-12-03",
+      "task_states": [false, false, false],
+      "is_angry": false
+    },
+    "octopus": {
+      "level": 1,
+      "tasks_completed_today": 0,
+      "last_login_date": "2024-12-03",
+      "task_states": [false, false, false],
+      "is_angry": false
+    },
+    "blobfish": {
+      "level": 1,
+      "tasks_completed_today": 0,
+      "last_login_date": "2024-12-03",
+      "task_states": [false, false, false],
+      "is_angry": false
+    }
+  },
+  "encounter_settings": {
+    "check_interval_minutes": 5,
+    "trigger_probability": 0.3,
+    "last_encounter_check": null
+  }
+}

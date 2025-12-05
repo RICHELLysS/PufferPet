@@ -1,0 +1,4 @@
+# file: C:\Users\ZERONELYSS\Desktop\PufferPet\data_manager.py
+# hypothesis_version: 6.148.5
+
+[0.02, 0.08, 0.1, 0.15, 0.25, 0.3, 0.4, 0.7, 1.5, 2.0, 2.5, 3.0, 3.5, 5.0, '.backup', '.tmp', '.v1.backup', '.v2.backup', '.v3.backup', 'active_pets', 'angler', 'beluga', 'blobfish', 'bluewhale', 'crab', 'current_pet_id', 'data.json', 'encounter_settings', 'inventory_limits', 'jelly', 'last_encounter_check', 'last_login_date', 'level', 'lootbox_probability', 'max_active', 'max_inventory', 'octopus', 'orca', 'pet_tiers', 'pets_data', 'puffer', 'r', 'ray', 'reward_system', 'reward_threshold', 'ribbon', 'shark', 'starfish', 'sunfish', 'task_states', 'tier1', 'tier2', 'tier3', 'tier3_scale_factors', 'tier3_weights', 'trigger_probability', 'unlocked_pets', 'utf-8', 'version', 'w', '未知条件', '通过奇遇捕获', '通过深海盲盒获得', '默认解锁', '🦑 发现远古封印！正在执行迁移仪式...']

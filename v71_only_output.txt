@@ -1,0 +1,40 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.4, pytest-9.0.1, pluggy-1.6.0 -- C:\Users\ZERONELYSS\AppData\Local\Programs\Python\Python312\python.exe
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: C:\Users\ZERONELYSS\Desktop\PufferPet
+plugins: anyio-4.9.0, hypothesis-6.148.5
+collecting ... collected 30 items
+
+tests/test_v7_1_properties.py::test_property_9_task_completion_sound_trigger PASSED [  3%]
+tests/test_v7_1_properties.py::test_sound_manager_enabled_state PASSED   [  6%]
+tests/test_v7_1_properties.py::test_sound_manager_singleton PASSED       [ 10%]
+tests/test_v7_1_properties.py::test_property_1_anger_trigger_threshold PASSED [ 13%]
+tests/test_v7_1_properties.py::test_property_2_anger_state_color_change PASSED [ 16%]
+tests/test_v7_1_properties.py::test_property_4_anger_auto_recovery PASSED [ 20%]
+tests/test_v7_1_properties.py::test_property_5_dormant_drag_prevention PASSED [ 23%]
+tests/test_v7_1_properties.py::test_property_6_squash_effect_during_drag PASSED [ 26%]
+tests/test_v7_1_properties.py::test_property_16_placeholder_styling_consistency PASSED [ 30%]
+tests/test_v7_1_properties.py::test_property_16_colored_placeholder_styling PASSED [ 33%]
+tests/test_v7_1_properties.py::test_property_8_task_text_persistence_round_trip PASSED [ 36%]
+tests/test_v7_1_properties.py::test_task_text_empty_handling PASSED      [ 40%]
+tests/test_v7_1_properties.py::test_task_text_returns_copy PASSED        [ 43%]
+tests/test_v7_1_properties.py::test_property_10_lifecycle_state_transitions PASSED [ 46%]
+tests/test_v7_1_properties.py::test_property_11_baby_stage_enables_dragging PASSED [ 50%]
+tests/test_v7_1_properties.py::test_baby_stage_normal_colors PASSED      [ 53%]
+tests/test_v7_1_properties.py::test_property_12_gacha_trigger_threshold PASSED [ 56%]
+tests/test_v7_1_properties.py::test_cumulative_tasks_increment PASSED    [ 60%]
+tests/test_v7_1_properties.py::test_cumulative_tasks_reset PASSED        [ 63%]
+tests/test_v7_1_properties.py::test_property_13_gacha_sound_trigger PASSED [ 66%]
+tests/test_v7_1_properties.py::test_gacha_animation_initial_stage PASSED [ 70%]
+tests/test_v7_1_properties.py::test_gacha_roll_returns_valid_pet PASSED  [ 73%]
+tests/test_v7_1_properties.py::test_property_14_inventory_slot_icon_generation PASSED [ 76%]
+tests/test_v7_1_properties.py::test_inventory_slot_pet_display PASSED    [ 80%]
+tests/test_v7_1_properties.py::test_property_15_inventory_change_signal_emission PASSED [ 83%]
+tests/test_v7_1_properties.py::test_inventory_signal_emits_copy PASSED   [ 86%]
+tests/test_v7_1_properties.py::test_inventory_max_active_limit PASSED    [ 90%]
+tests/test_v7_1_properties.py::test_property_17_default_data_initialization PASSED [ 93%]
+tests/test_v7_1_properties.py::test_growth_manager_default_initialization PASSED [ 96%]
+tests/test_v7_1_properties.py::test_existing_data_not_overwritten PASSED [100%]
+
+======================== 30 passed in 60.73s (0:01:00) ========================

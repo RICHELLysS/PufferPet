@@ -1,0 +1,18 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.4, pytest-9.0.1, pluggy-1.6.0 -- C:\Users\ZERONELYSS\AppData\Local\Programs\Python\Python312\python.exe
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: C:\Users\ZERONELYSS\Desktop\PufferPet
+plugins: anyio-4.9.0, hypothesis-6.148.5
+collecting ... collected 8 items
+
+tests/test_v8_properties.py::test_property_1_day_night_toggle_round_trip PASSED [ 12%]
+tests/test_v8_properties.py::test_day_night_theme_mode_mapping PASSED    [ 25%]
+tests/test_v8_properties.py::test_multiple_toggles_consistency PASSED    [ 37%]
+tests/test_v8_properties.py::test_property_2_task_requirements_by_pet_type_and_state PASSED [ 50%]
+tests/test_v8_properties.py::test_property_3_gacha_probability_distribution PASSED [ 62%]
+tests/test_v8_properties.py::test_property_4_tutorial_text_for_dormant_state PASSED [ 75%]
+tests/test_v8_properties.py::test_property_5_geometric_fallback_consistency PASSED [ 87%]
+tests/test_v8_properties.py::test_geometric_fallback_at_calculated_sizes PASSED [100%]
+
+============================== 8 passed in 1.25s ==============================

@@ -1,0 +1,20 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.4, pytest-9.0.1, pluggy-1.6.0 -- C:\Users\ZERONELYSS\AppData\Local\Programs\Python\Python312\python.exe
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: C:\Users\ZERONELYSS\Desktop\PufferPet
+plugins: anyio-4.9.0, hypothesis-6.148.5
+collecting ... collected 10 items
+
+tests/test_v7_properties.py::test_property_3_gacha_probability_sum PASSED [ 10%]
+tests/test_v7_properties.py::test_gacha_specific_probabilities PASSED    [ 20%]
+tests/test_v7_properties.py::test_property_2_pet_size_calculation PASSED [ 30%]
+tests/test_v7_properties.py::test_size_specific_values PASSED            [ 40%]
+tests/test_v7_properties.py::test_property_1_placeholder_generation PASSED [ 50%]
+tests/test_v7_properties.py::test_placeholder_shape_color_mapping PASSED [ 60%]
+tests/test_v7_properties.py::test_property_4_inventory_capacity_enforcement PASSED [ 70%]
+tests/test_v7_properties.py::test_property_5_desktop_toggle_consistency PASSED [ 80%]
+tests/test_v7_properties.py::test_property_6_lifecycle_stage_size_transition PASSED [ 90%]
+tests/test_v7_properties.py::test_dormant_to_baby_size_unchanged PASSED  [100%]
+
+============================= 10 passed in 5.83s ==============================

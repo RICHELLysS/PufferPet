@@ -1,0 +1,20 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.4, pytest-9.0.1, pluggy-1.6.0 -- C:\Users\ZERONELYSS\AppData\Local\Programs\Python\Python312\python.exe
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: C:\Users\ZERONELYSS\Desktop\PufferPet
+plugins: anyio-4.9.0, hypothesis-6.148.5
+collecting ... collected 605 items / 3 skipped
+
+tests/test_data_manager.py::test_default_data_creation FAILED            [  0%]
+
+================================== FAILURES ===================================
+_________________________ test_default_data_creation __________________________
+tests\test_data_manager.py:19: in test_default_data_creation
+    assert dm.data['version'] == 5.5
+           ^^^^^^^
+E   AttributeError: 'GrowthManager' object has no attribute 'data'
+=========================== short test summary info ===========================
+FAILED tests/test_data_manager.py::test_default_data_creation - AttributeErro...
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!
+======================== 1 failed, 3 skipped in 0.62s =========================
