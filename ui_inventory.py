@@ -172,13 +172,20 @@ class MCInventorySlot(QFrame):
         V9: Scale 1500x1500px default_icon to 64x64px
         Requirements 2.5, 4.4: Show default_icon or miniature geometric placeholder
         """
-        # Try to load default_icon first (V9: original is 1500x1500px)
-        icon_path = f"assets/{pet_id}/default_icon.png"
-        if os.path.exists(icon_path) and os.path.getsize(icon_path) > 0:
-            pixmap = QPixmap(icon_path)
-            if not pixmap.isNull():
-                # V9: Scale from 1500x1500px to 64x64px
-                return PetRenderer.scale_frame(pixmap, ICON_SIZE)
+        # Try to load pet-specific default_icon first (V9: original is 1500x1500px)
+        # New naming convention: [pet_id]_default_icon.png
+        # Special case: jelly uses jellyfish_default_icon.png
+        icon_paths = [
+            f"assets/{pet_id}/{pet_id}_default_icon.png",
+            f"assets/{pet_id}/jellyfish_default_icon.png" if pet_id == "jelly" else None,
+            f"assets/{pet_id}/default_icon.png",  # Legacy fallback
+        ]
+        for icon_path in icon_paths:
+            if icon_path and os.path.exists(icon_path) and os.path.getsize(icon_path) > 0:
+                pixmap = QPixmap(icon_path)
+                if not pixmap.isNull():
+                    # V9: Scale from 1500x1500px to 64x64px
+                    return PetRenderer.scale_frame(pixmap, ICON_SIZE)
         
         # Try baby_idle as fallback
         fallback_paths = [
