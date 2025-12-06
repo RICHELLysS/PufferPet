@@ -125,18 +125,30 @@ class TaskWindow(QDialog):
     WARNING: Complete these rituals to awaken the creatures of the deep...
     """
     
+    # V16: Default tasks for most pets (3 tasks)
     TASKS = [
         "💧 Drink water",
         "🧘 Stretch",
         "⏱️ Focus 30min"
     ]
     
-    def __init__(self, pet_id: str, growth_manager: GrowthManager, pet_widget: PetWidget, parent=None):
+    # V16: Ray (SSR) requires 5 tasks
+    RAY_TASKS = [
+        "💧 Drink water",
+        "🧘 Stretch",
+        "⏱️ Focus 30min",
+        "🚶 Take a walk",
+        "📖 Read 10 pages"
+    ]
+    
+    def __init__(self, pet_id: str, growth_manager: GrowthManager, pet_widget: PetWidget, 
+                 on_pet_added: callable = None, parent=None):
         super().__init__(parent)
         self.pet_id = pet_id
         self.growth_manager = growth_manager
         self.pet_widget = pet_widget
         self.checkboxes = []
+        self._on_pet_added = on_pet_added  # V15: Callback to refresh pet widgets
         
         self._setup_ui()
         self._load_state()
@@ -144,7 +156,9 @@ class TaskWindow(QDialog):
     def _setup_ui(self):
         """Setup UI - Retro Minesweeper Style (Requirements: 5.1, 5.4)"""
         self.setWindowTitle(f"📋 Tasks - {self.pet_id}")
-        self.setFixedSize(320, 300)
+        # V16: Larger window for Ray (5 tasks)
+        window_height = 380 if self.pet_id == 'ray' else 300
+        self.setFixedSize(320, window_height)
         
         # Apply global retro stylesheet from ui_style (Requirements: 5.1, 5.4)
         mode = self.growth_manager.get_theme_mode()
@@ -186,8 +200,11 @@ class TaskWindow(QDialog):
         task_layout.setSpacing(4)
         task_layout.setContentsMargins(8, 8, 8, 8)
         
+        # V16: Use RAY_TASKS for ray, TASKS for others
+        tasks = self.RAY_TASKS if self.pet_id == 'ray' else self.TASKS
+        
         # Task checkboxes - inside 3D sunken frame
-        for task in self.TASKS:
+        for task in tasks:
             cb = QCheckBox(task)
             cb.stateChanged.connect(self._on_task_changed)
             self.checkboxes.append(cb)
@@ -230,13 +247,18 @@ class TaskWindow(QDialog):
         if checked_count > current_progress:
             old_state = self.growth_manager.get_state(self.pet_id)
             new_state = self.growth_manager.complete_task(self.pet_id)
+            
+            # V16: Debug output for state transition
+            print(f"[TaskWindow] {self.pet_id}: old_state={old_state}, new_state={new_state}, progress={self.growth_manager.get_progress(self.pet_id)}")
+            
             self.pet_widget.refresh_display()
             
             # V7.1: Increment cumulative task count
             self.growth_manager.increment_cumulative_tasks()
             
-            # V7.1: When pet evolves from baby to adult (3 tasks), trigger gacha
+            # V16: When pet evolves from baby to adult, trigger gacha
             if old_state == 1 and new_state == 2:
+                print(f"[TaskWindow] Triggering gacha for {self.pet_id} (Baby -> Adult)")
                 self._trigger_gacha_on_adult()
             # V6.1: Every 12 tasks also triggers reward
             elif self.growth_manager.check_reward():
@@ -252,6 +274,9 @@ class TaskWindow(QDialog):
                 "🐟 The tank is full! Release some pets first."
             )
             return
+        
+        # V16: Close task window before showing gacha
+        self.close()
         
         # Show gacha animation
         pet_id = roll_gacha()
@@ -269,25 +294,33 @@ class TaskWindow(QDialog):
             )
             return
         
+        # V16: Close task window before showing gacha
+        self.close()
+        
         # Show gacha animation
         pet_id = roll_gacha()
         mode = self.growth_manager.get_theme_mode()
         self.gacha_overlay = show_gacha(pet_id, self._on_gacha_close, mode=mode)
     
     def _on_gacha_close(self, pet_id: str):
-        """Gacha close callback - add pet to inventory."""
-        self.growth_manager.add_pet(pet_id)
+        """V15: Gacha close callback - add pet as Baby and show on screen immediately."""
+        self.growth_manager.add_pet(pet_id)  # V15: add_pet now sets Baby state by default
+        # V15: Refresh pet widgets to show new pet on screen immediately
+        if self._on_pet_added:
+            self._on_pet_added()
         QMessageBox.information(
             self, "Congratulations!",
-            f"🎉 You got a new companion!\nAdded to inventory."
+            f"🎉 You got a new {pet_id}!\nNow swimming on your screen!"
         )
     
     def _update_display(self):
-        """Update progress and status display."""
+        """V16: Update progress and status display based on pet type."""
         progress = self.growth_manager.get_progress(self.pet_id)
         state = self.growth_manager.get_state(self.pet_id)
         
-        self.progress_label.setText(f"Progress: {progress}/3")
+        # V16: Ray needs 5 tasks, others need 3
+        total_tasks = 5 if self.pet_id == 'ray' else 3
+        self.progress_label.setText(f"Progress: {progress}/{total_tasks}")
         
         state_names = {0: "💤 Dormant", 1: "🐣 Baby", 2: "🐟 Adult"}
         self.status_label.setText(state_names.get(state, "???"))
@@ -302,6 +335,15 @@ class PufferPetApp:
     def __init__(self):
         self.app = QApplication(sys.argv)
         self.app.setQuitOnLastWindowClosed(False)
+        
+        # V12: Set application icon using puffer_default_icon
+        icon_path = resource_path("assets/puffer/puffer_default_icon.png")
+        if os.path.exists(icon_path):
+            app_icon = QIcon(icon_path)
+            self.app.setWindowIcon(app_icon)
+            print(f"[PufferPetApp] App icon loaded: {icon_path}")
+        else:
+            print(f"[PufferPetApp] App icon not found: {icon_path}")
         
         # V7.1: Ensure data.json exists with default dormant puffer
         # Requirements: 10.1
@@ -471,7 +513,8 @@ class PufferPetApp:
             dialog = TaskWindow(
                 pet_id, 
                 self.growth_manager, 
-                self.pet_widgets[pet_id]
+                self.pet_widgets[pet_id],
+                on_pet_added=self._refresh_pet_widgets  # V15: Pass refresh callback
             )
             dialog.exec()
     
@@ -585,8 +628,13 @@ class PufferPetApp:
         self.gacha_overlay = show_gacha(pet_id, self._on_gacha_complete, mode=mode)
     
     def _on_gacha_complete(self, pet_id: str):
-        """Gacha complete callback."""
+        """V14: Gacha complete callback - add pet and show on screen immediately."""
         self.growth_manager.add_pet(pet_id)
+        # V14: Ensure new pet is in active_pets so it shows on screen
+        active_pets = self.growth_manager.get_active_pets()
+        if pet_id not in active_pets and len(active_pets) < 5:
+            active_pets.append(pet_id)
+            self.growth_manager.set_active_pets(active_pets)
         self._refresh_pet_widgets()
     
     def _setup_encounter_timer(self):

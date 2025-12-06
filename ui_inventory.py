@@ -414,13 +414,16 @@ class MCInventoryWindow(QDialog):
     
     def _load_data(self):
         """Load pet data and populate slots"""
-        # Get all pets from growth_manager
-        all_pets = self.growth_manager.get_all_pets()
-        
-        # For now, treat all pets as active (V7 simplified)
-        # In full implementation, this would track active vs stored separately
-        self._active_pets = list(all_pets)
-        self._stored_pets = []
+        # V10: Load from growth_manager's unlocked and active pets
+        if self.growth_manager:
+            unlocked = self.growth_manager.get_unlocked_pets()
+            active = self.growth_manager.get_active_pets()
+            
+            self._active_pets = [p for p in active if p in unlocked]
+            self._stored_pets = [p for p in unlocked if p not in active]
+        else:
+            self._active_pets = ['puffer']
+            self._stored_pets = []
         
         self._refresh_slots()
         self._update_status()
@@ -445,11 +448,39 @@ class MCInventoryWindow(QDialog):
     
     def _on_slot_clicked(self, pet_id: str):
         """
-        Handle slot click - toggle pet between desktop and inventory.
+        Handle slot click - show pet options menu.
         
         Requirements 4.6: Toggle pet between active and stored state
         Requirements 4.5, 4.7: Enforce capacity limits
+        V10: Add release option (except for default pet 'puffer')
         """
+        from PyQt6.QtWidgets import QMenu
+        from PyQt6.QtGui import QCursor
+        
+        menu = QMenu(self)
+        
+        # Toggle desktop/inventory option
+        if pet_id in self._active_pets:
+            toggle_action = menu.addAction("📦 Move to Inventory")
+        else:
+            toggle_action = menu.addAction("🖥️ Move to Desktop")
+        
+        # Release option (not available for default pet 'puffer')
+        release_action = None
+        if pet_id != 'puffer':
+            menu.addSeparator()
+            release_action = menu.addAction("🌊 Release to Ocean")
+        
+        # Show menu and handle selection
+        action = menu.exec(QCursor.pos())
+        
+        if action == toggle_action:
+            self._toggle_pet(pet_id)
+        elif action == release_action and release_action is not None:
+            self._release_pet(pet_id)
+    
+    def _toggle_pet(self, pet_id: str):
+        """Toggle pet between desktop and inventory."""
         if pet_id in self._active_pets:
             # Move from desktop to inventory
             self._active_pets.remove(pet_id)
@@ -471,6 +502,89 @@ class MCInventoryWindow(QDialog):
         
         self._refresh_slots()
         self._update_status()
+    
+    def _release_pet(self, pet_id: str):
+        """
+        V10: Release a pet back to the ocean.
+        V11: Bonus gacha when releasing at full inventory (20 pets).
+        
+        Cannot release the default pet 'puffer'.
+        """
+        if pet_id == 'puffer':
+            QMessageBox.warning(
+                self,
+                "Cannot Release",
+                "You cannot release your first companion!"
+            )
+            return
+        
+        # V11: Check if inventory is full before release (for bonus gacha)
+        was_full = len(self._active_pets) + len(self._stored_pets) >= MAX_INVENTORY
+        
+        # Confirm release
+        bonus_text = "\n\n🎁 Bonus: You'll get a free gacha roll!" if was_full else ""
+        reply = QMessageBox.question(
+            self,
+            "Confirm Release",
+            f"Are you sure you want to release {PET_NAMES.get(pet_id, pet_id)}?\nThis cannot be undone!{bonus_text}",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
+        )
+        
+        if reply == QMessageBox.StandardButton.Yes:
+            # Remove from lists
+            if pet_id in self._active_pets:
+                self._active_pets.remove(pet_id)
+            if pet_id in self._stored_pets:
+                self._stored_pets.remove(pet_id)
+            
+            # Remove from growth manager
+            if self.growth_manager:
+                self.growth_manager.release_pet(pet_id)
+            
+            self._refresh_slots()
+            self._update_status()
+            self.pets_changed.emit(self._active_pets.copy())
+            
+            QMessageBox.information(
+                self,
+                "Released",
+                f"🌊 {PET_NAMES.get(pet_id, pet_id)} returned to the ocean..."
+            )
+            
+            # V11: Trigger bonus gacha if inventory was full
+            if was_full:
+                self._trigger_bonus_gacha()
+    
+    def _trigger_bonus_gacha(self):
+        """V11: Trigger bonus gacha when releasing pet at full inventory."""
+        from ui_gacha import show_gacha, roll_gacha
+        
+        pet_id = roll_gacha()
+        mode = "normal"
+        if self.growth_manager:
+            mode = self.growth_manager.get_theme_mode()
+        
+        # Store reference to prevent garbage collection
+        self._gacha_overlay = show_gacha(pet_id, self._on_bonus_gacha_close, mode=mode)
+    
+    def _on_bonus_gacha_close(self, pet_id: str):
+        """V11: Handle bonus gacha result."""
+        if self.growth_manager:
+            success = self.growth_manager.add_pet(pet_id)
+            if success:
+                # Refresh inventory display
+                self._active_pets = self.growth_manager.get_active_pets()
+                self._stored_pets = [p for p in self.growth_manager.get_unlocked_pets() 
+                                    if p not in self._active_pets]
+                self._refresh_slots()
+                self._update_status()
+                self.pets_changed.emit(self._active_pets.copy())
+                
+                QMessageBox.information(
+                    self,
+                    "Bonus Reward!",
+                    f"🎉 You got a {PET_NAMES.get(pet_id, pet_id)} as a bonus!"
+                )
     
     def _update_status(self):
         """Update status display."""

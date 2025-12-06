@@ -333,6 +333,12 @@ class GrowthManager:
         """
         添加新宠物到库存
         
+        V16: New pets from gacha start as Dormant (state=0) and appear on screen.
+        User needs to complete tasks to awaken them.
+        
+        Args:
+            pet_id: Pet ID to add
+        
         Returns:
             是否添加成功
         """
@@ -341,17 +347,34 @@ class GrowthManager:
             return False
         
         if pet_id not in self.unlocked_pets:
+            # New pet - add to inventory
             self.unlocked_pets.append(pet_id)
-            self._ensure_pet(pet_id)
+            pet = self._ensure_pet(pet_id)
             
-            # 如果桌面未满，自动激活
-            if len(self.active_pets) < MAX_ACTIVE:
+            # V16: New pets start as Dormant (need to complete tasks to awaken)
+            pet.state = self.STATE_DORMANT
+            pet.tasks_progress = 0
+            
+            # V16: Add to active_pets if not full (so it shows on screen)
+            if len(self.active_pets) < MAX_ACTIVE and pet_id not in self.active_pets:
                 self.active_pets.append(pet_id)
             
             self.save()
-            print(f"[GrowthManager] Added new pet: {pet_id}")
+            print(f"[GrowthManager] Added new pet as Dormant: {pet_id}")
             return True
-        return False
+        else:
+            # V16: Pet already exists - reset to Dormant state
+            pet = self._ensure_pet(pet_id)
+            pet.state = self.STATE_DORMANT
+            pet.tasks_progress = 0
+            
+            # V16: Ensure it's in active_pets
+            if len(self.active_pets) < MAX_ACTIVE and pet_id not in self.active_pets:
+                self.active_pets.append(pet_id)
+            
+            self.save()
+            print(f"[GrowthManager] Reset existing pet to Dormant: {pet_id}")
+            return True
     
     def release_pet(self, pet_id: str) -> bool:
         """

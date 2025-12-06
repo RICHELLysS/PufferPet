@@ -89,10 +89,22 @@ class GachaOverlay(QWidget):
         )
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         
+        # V12: CRITICAL - Disable mouse event pass-through on transparent areas
+        self.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents, False)
+        
+        # V12: Ensure window can receive mouse events
+        self.setMouseTracking(True)
+        self.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
+        
         # Fullscreen
         screen = QApplication.primaryScreen()
         if screen:
             self.setGeometry(screen.geometry())
+        
+        # V12: Activate window to receive input
+        self.activateWindow()
+        self.raise_()
+        self.setFocus()
     
     def _load_assets(self):
         """Load assets for gacha animation."""
@@ -105,16 +117,21 @@ class GachaOverlay(QWidget):
         else:
             self.box_pixmap = self._create_box_placeholder()
         
-        # V7.1: Simplified paths - all V7 pets use assets/{pet_id}/ (Requirements: 10.2)
-        pet_paths = [
-            f"assets/{self.pet_id}/adult_idle.png",
-            f"assets/{self.pet_id}/baby_idle.png",
-        ]
+        # V12: Load pet image - ONLY use [pet_id]_default_icon
+        # Handle special naming (jelly -> jellyfish in filenames)
+        file_name = 'jellyfish' if self.pet_id == 'jelly' else self.pet_id
+        icon_path = f"assets/{self.pet_id}/{file_name}_default_icon.png"
+        
         self.pet_pixmap = None
-        for path in pet_paths:
-            if os.path.exists(path):
-                self.pet_pixmap = QPixmap(path)
-                break
+        if os.path.exists(icon_path):
+            pixmap = QPixmap(icon_path)
+            if not pixmap.isNull():
+                # Scale to display size (200x200)
+                self.pet_pixmap = pixmap.scaled(
+                    200, 200,
+                    Qt.AspectRatioMode.KeepAspectRatio,
+                    Qt.TransformationMode.SmoothTransformation
+                )
         
         if self.pet_pixmap is None:
             self.pet_pixmap = self._create_pet_placeholder()
@@ -298,15 +315,20 @@ class GachaOverlay(QWidget):
     
     def _update_box_frame(self):
         """
-        V9: Update blindbox frame animation.
+        V11: Update blindbox frame animation - play once only.
         
-        Requirements 8.2: Loop box_0 to box_3 during shake phase
+        Play box_0 to box_3 sequence once during shake phase, then stop.
         """
         if self.stage == 0 and self.box_frames:
-            # Cycle to next frame (0 -> 1 -> 2 -> 3 -> 0)
-            self.current_box_frame = (self.current_box_frame + 1) % len(self.box_frames)
-            self.box_pixmap = self.box_frames[self.current_box_frame]
-            self.update()
+            # V11: Play animation once, not loop
+            if self.current_box_frame < len(self.box_frames) - 1:
+                self.current_box_frame += 1
+                self.box_pixmap = self.box_frames[self.current_box_frame]
+                self.update()
+            else:
+                # Animation complete, stop timer
+                if self.box_frame_timer:
+                    self.box_frame_timer.stop()
     
     def _start_flash(self):
         """Start flash effect."""
@@ -338,6 +360,8 @@ class GachaOverlay(QWidget):
         self.stage = 2
         self.flash_alpha = 0
         self.update()
+        # V15: Auto-close after 3 seconds (restored)
+        QTimer.singleShot(3000, self._auto_close)
     
     def paintEvent(self, event: QPaintEvent):
         """
@@ -412,26 +436,23 @@ class GachaOverlay(QWidget):
             pet_y = center_y - self.pet_pixmap.height() // 2 - 50
             painter.drawPixmap(pet_x, pet_y, self.pet_pixmap)
             
-            # 文字 - use theme colors and pixel font
-            if self.mode == "halloween":
-                title_color = accent_color  # Blood red for halloween
-            else:
-                title_color = button_light  # White for normal mode
+            # V12: All text in WHITE color for consistency
+            white_color = QColor(255, 255, 255)
             
-            painter.setPen(title_color)
+            # Title text - WHITE
+            painter.setPen(white_color)
             font = QFont(font_family, 28, QFont.Weight.Bold)
             font.setStyleStrategy(QFont.StyleStrategy.NoAntialias)
             painter.setFont(font)
             
-            name = PET_NAMES.get(self.pet_id, self.pet_id)
             painter.drawText(
                 self.rect().adjusted(0, center_y + 80, 0, 0),
                 Qt.AlignmentFlag.AlignHCenter,
                 "New Partner Found!"
             )
             
-            # Pet name - use foreground color
-            painter.setPen(fg_color)
+            # Pet name - WHITE
+            name = PET_NAMES.get(self.pet_id, self.pet_id)
             font.setPointSize(22)
             painter.setFont(font)
             painter.drawText(
@@ -440,21 +461,84 @@ class GachaOverlay(QWidget):
                 name
             )
             
-            # 点击提示 - use theme highlight color
-            painter.setPen(highlight_color)
+            # V14: ESC hint - WHITE
             font.setPointSize(14)
             painter.setFont(font)
             painter.drawText(
-                self.rect().adjusted(0, center_y + 200, 0, 0),
+                self.rect().adjusted(0, center_y + 180, 0, 0),
                 Qt.AlignmentFlag.AlignHCenter,
-                "Click anywhere to continue..."
+                "Press ESC to close"
+            )
+            
+            # V14: Pet will appear on screen hint - WHITE
+            font.setPointSize(12)
+            painter.setFont(font)
+            painter.drawText(
+                self.rect().adjusted(0, center_y + 210, 0, 0),
+                Qt.AlignmentFlag.AlignHCenter,
+                "Pet will appear on screen!"
             )
     
+    def event(self, event):
+        """V12: Override event() to catch all mouse events including on transparent areas."""
+        from PyQt6.QtCore import QEvent
+        if event.type() == QEvent.Type.MouseButtonPress:
+            print(f"[Gacha] Event: Mouse press, stage={self.stage}")
+            if self.stage == 2:
+                self._force_close()
+                return True
+        elif event.type() == QEvent.Type.MouseButtonRelease:
+            print(f"[Gacha] Event: Mouse release, stage={self.stage}")
+            if self.stage == 2:
+                self._force_close()
+                return True
+        return super().event(event)
+    
     def mousePressEvent(self, event: QMouseEvent):
-        """Click to close."""
+        """V12: Click anywhere to close after reveal phase."""
+        print(f"[Gacha] mousePressEvent, stage={self.stage}")
         if self.stage == 2:
+            self._force_close()
+        event.accept()
+    
+    def mouseReleaseEvent(self, event: QMouseEvent):
+        """V12: Also handle mouse release."""
+        print(f"[Gacha] mouseReleaseEvent, stage={self.stage}")
+        if self.stage == 2:
+            self._force_close()
+        event.accept()
+    
+    def _force_close(self):
+        """V12: Force close the gacha overlay."""
+        if not getattr(self, '_closing', False):
+            self._closing = True
+            print(f"[Gacha] Closing and emitting pet_id={self.pet_id}")
             self.closed.emit(self.pet_id)
             self.close()
+            self.deleteLater()
+    
+    def _auto_close(self):
+        """V15: Auto-close after 3 seconds in result phase and emit pet_id."""
+        if self.stage == 2 and not getattr(self, '_closing', False):
+            self._closing = True
+            print(f"[Gacha] Auto-closing after 3 seconds, emitting pet_id={self.pet_id}")
+            self.closed.emit(self.pet_id)
+            self.close()
+            self.deleteLater()
+    
+    def keyPressEvent(self, event):
+        """Handle ESC key to close - always emit pet_id in result phase."""
+        from PyQt6.QtCore import Qt as QtCore
+        if event.key() == QtCore.Key.Key_Escape:
+            if not getattr(self, '_closing', False):
+                self._closing = True
+                # V13: Always emit pet_id in result phase (stage 2)
+                if self.stage == 2:
+                    print(f"[Gacha] ESC pressed, emitting pet_id={self.pet_id}")
+                    self.closed.emit(self.pet_id)
+                self.close()
+                self.deleteLater()
+        event.accept()
 
 
 def roll_gacha() -> str:

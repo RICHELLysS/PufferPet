@@ -48,53 +48,62 @@ TUTORIAL_BUBBLES = {
 
 
 # =============================================================================
-# V9 PetLoader - 资源加载器
+# V9 PetLoader - Asset Loader
 # =============================================================================
 
 class PetLoader:
     """
-    V9 资源加载器 - 适配嵌套文件夹结构
+    V9 Asset Loader - Adapts to nested folder structure.
     
-    负责从新的嵌套文件夹结构加载宠物资源。
-    路径格式: assets/{pet_id}/{action}/{pet_id}_{action}_{index}.png
+    Loads pet assets from nested folder structure.
+    Path format: assets/{pet_id}/{action}/{pet_id}_{action}_{index}.png
     
     Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 1.9
     """
     
-    # 动作映射: (stage, is_moving) -> action_folder
+    # Action mapping: (stage, is_moving) -> action_folder
     # Stage 0 = Dormant, Stage 1 = Baby, Stage 2 = Adult
     ACTION_MAP = {
-        (0, False): 'baby_sleep',   # Stage 0: 休眠
-        (0, True): 'baby_sleep',    # Stage 0: 休眠（即使移动也用sleep）
-        (1, True): 'baby_swim',     # Stage 1: 幼年游动
-        (1, False): 'baby_swim',    # Stage 1: 幼年静止也用swim
-        (2, True): 'swim',          # Stage 2: 成年游动
-        (2, False): 'sleep',        # Stage 2: 成年静止
+        (0, False): 'baby_sleep',   # Stage 0: Dormant
+        (0, True): 'baby_sleep',    # Stage 0: Dormant (use sleep even if moving)
+        (1, True): 'baby_swim',     # Stage 1: Baby swimming
+        (1, False): 'baby_swim',    # Stage 1: Baby idle also uses swim
+        (2, True): 'swim',          # Stage 2: Adult swimming
+        (2, False): 'sleep',        # Stage 2: Adult idle
     }
     
     INTERACTION_ACTIONS = ['angry', 'drag_h', 'drag_v']
-    FRAME_COUNT = 4  # 每个动作4帧 (0-3)
+    FRAME_COUNT = 4  # 4 frames per action (0-3)
+    
+    # File name mapping for pets with different naming conventions
+    PET_FILE_NAMES = {
+        'jelly': 'jellyfish',  # jelly folder uses jellyfish_ prefix in filenames
+    }
     
     @staticmethod
     def get_frame_path(pet_id: str, action: str, frame_index: int) -> str:
         """
-        构建帧路径
+        Build frame path
         
-        路径格式: assets/{pet_id}/{action}/{pet_id}_{action}_{index}.png
+        Path format: assets/{pet_id}/{action}/{file_name}_{action}_{index}.png
         
         Args:
-            pet_id: 宠物ID (e.g., 'puffer', 'crab')
-            action: 动作名称 (e.g., 'swim', 'sleep', 'angry')
-            frame_index: 帧索引 (0-3)
+            pet_id: Pet ID (e.g., 'puffer', 'crab', 'jelly')
+            action: Action name (e.g., 'swim', 'sleep', 'angry')
+            frame_index: Frame index (0-3)
             
         Returns:
-            构建的文件路径字符串
+            Constructed file path string
             
         Requirements: 1.1
         """
         # Clamp frame_index to valid range 0-3
         frame_index = max(0, min(frame_index, PetLoader.FRAME_COUNT - 1))
-        return f"assets/{pet_id}/{action}/{pet_id}_{action}_{frame_index}.png"
+        
+        # Get file name prefix (handle special cases like jelly -> jellyfish)
+        file_name = PetLoader.PET_FILE_NAMES.get(pet_id, pet_id)
+        
+        return f"assets/{pet_id}/{action}/{file_name}_{action}_{frame_index}.png"
     
     @staticmethod
     def load_action_frames(pet_id: str, action: str) -> list:
@@ -343,11 +352,11 @@ class FlipTransform:
     @staticmethod
     def should_flip_horizontal(delta_x: int) -> bool:
         """
-        判断是否需要水平翻转
+        V16: 判断是否需要水平翻转
         
-        规则:
-        - delta_x >= 0 (向右拖拽): 不翻转
-        - delta_x < 0 (向左拖拽): 水平镜像翻转
+        规则 (默认帧动画方向是向左):
+        - delta_x < 0 (向左拖拽): 不翻转（保持默认向左）
+        - delta_x >= 0 (向右拖拽): 水平镜像翻转（变成向右）
         
         Args:
             delta_x: 水平拖拽增量
@@ -357,7 +366,7 @@ class FlipTransform:
             
         Requirements: 5.1, 5.2
         """
-        return delta_x < 0
+        return delta_x > 0
     
     @staticmethod
     def should_flip_vertical(delta_y: int) -> bool:
@@ -1059,6 +1068,20 @@ class PetWidget(QWidget):
         self.just_awakened_timer: Optional[QTimer] = None  # 唤醒提示计时器
         self.show_idle_hint: bool = False  # 是否显示空闲提示
         
+        # V11: Guidance progression system - show all guidances in sequence
+        self.guidance_step: int = 0  # 0=dormant, 1=awakened, 2=drag, 3=task, 4=click
+        self.guidance_shown: set = set()  # Track which guidances have been shown
+        
+        # V10: AI movement state
+        self.ai_dx: float = 0  # Horizontal movement speed
+        self.ai_dy: float = 0  # Vertical movement speed
+        self.ai_speed: float = 2  # Base movement speed
+        self.ai_change_timer: int = 100  # Timer for direction change
+        self.ai_falling: bool = False  # For crab falling animation
+        self._pet_draw_offset_y: int = 0  # Offset for tutorial bubble space
+        self._flip_horizontal: bool = False  # Flip sprite when moving left
+        self._is_sleeping: bool = False  # V13: Sleep state flag - prevents movement when True
+        
         # V9: 序列帧动画器 (Requirements 7.1, 7.2, 7.3, 7.4)
         self.frame_animator: Optional[FrameAnimator] = None
         self.current_action: str = ''  # 当前动作名称
@@ -1130,12 +1153,21 @@ class PetWidget(QWidget):
         if self.is_dormant:
             self._move_to_bottom()
             self.stop_floating()
-        else:
+        elif not getattr(self, '_is_sleeping', False):
+            # V16: Don't start floating if sleeping
             self.start_floating()
         
-        # 调整窗口大小
+        # Adjust window size - add extra space for tutorial bubble
         if self.current_pixmap:
-            self.setFixedSize(self.current_pixmap.size())
+            # Add 40px at top for tutorial bubble
+            bubble_height = 40
+            new_width = self.current_pixmap.width()
+            new_height = self.current_pixmap.height() + bubble_height
+            self.setFixedSize(new_width, new_height)
+            # Store offset for drawing pet image
+            self._pet_draw_offset_y = bubble_height
+        else:
+            self._pet_draw_offset_y = 0
         
         self.update()
     
@@ -1320,6 +1352,8 @@ class PetWidget(QWidget):
         动画效果：尺寸增大 1.5x
         - 先刷新显示（加载成年图像）
         - 然后执行尺寸增大动画
+        
+        V13: Trigger guidance for drag and click hints when becoming adult
         """
         # 记录当前位置
         current_pos = self.pos()
@@ -1334,6 +1368,9 @@ class PetWidget(QWidget):
         # 保持位置不变（尺寸变化可能导致位置偏移）
         self.move(current_pos)
         self.original_pos = current_pos
+        
+        # V13: Trigger adult guidance - show drag and click hints
+        self._start_adult_guidance()
     
     def _load_image(self, stage: str) -> QPixmap:
         """
@@ -1550,36 +1587,245 @@ class PetWidget(QWidget):
             self.original_pos = self.pos()
     
     def start_floating(self) -> None:
-        """开始漂浮动画"""
+        """Start AI movement based on pet species"""
+        # V13: Don't start floating if sleeping
+        if getattr(self, '_is_sleeping', False):
+            return
+            
         if self.float_timer is None:
             self.float_timer = QTimer(self)
-            self.float_timer.timeout.connect(self._update_float)
-            self.float_timer.start(100)  # 100ms 更新一次
-            # 如果没有位置，移动到右下方
+            self.float_timer.timeout.connect(self._update_ai_movement)
+            self.float_timer.start(50)  # 50ms update for smooth movement
+            
+            # Initialize AI movement state
+            self._init_ai_movement()
+            
+            # Set moving state to use swim animation
+            self.is_moving = True
+            self.refresh_display()
+            
+            # Set initial position if needed
             if self.original_pos is None or self.original_pos == QPoint(0, 0):
                 self._move_to_right_bottom()
             else:
                 self.original_pos = self.pos()
     
+    def _init_ai_movement(self) -> None:
+        """Initialize AI movement state based on pet species"""
+        import random
+        import math
+        
+        # Base speed (pixels per update)
+        base_speed = 2
+        
+        # Species-specific speed multiplier
+        if self.pet_id == 'ray':
+            self.ai_speed = base_speed * 1.2  # Ray is 1.2x faster
+        else:
+            self.ai_speed = base_speed
+        
+        # Movement direction (dx, dy)
+        if self.pet_id == 'jelly':
+            # Jellyfish: 45 degree diagonal movement
+            angle = random.choice([math.pi/4, 3*math.pi/4, 5*math.pi/4, 7*math.pi/4])
+            self.ai_dx = math.cos(angle) * self.ai_speed
+            self.ai_dy = math.sin(angle) * self.ai_speed
+        elif self.pet_id == 'crab':
+            # Crab: horizontal only at bottom
+            self.ai_dx = random.choice([-1, 1]) * self.ai_speed
+            self.ai_dy = 0
+            self.ai_falling = False  # Track if crab is falling
+        elif self.pet_id == 'starfish':
+            # Starfish: only up/down/left/right, no diagonal
+            direction = random.choice(['up', 'down', 'left', 'right'])
+            self._set_starfish_direction(direction)
+        else:
+            # Puffer and Ray: random direction
+            angle = random.uniform(0, 2 * math.pi)
+            self.ai_dx = math.cos(angle) * self.ai_speed
+            self.ai_dy = math.sin(angle) * self.ai_speed
+        
+        # Movement change timer
+        self.ai_change_timer = random.randint(50, 150)  # Change direction every 2.5-7.5 seconds
+    
+    def _set_starfish_direction(self, direction: str) -> None:
+        """Set starfish movement direction (only cardinal directions)"""
+        if direction == 'up':
+            self.ai_dx, self.ai_dy = 0, -self.ai_speed
+        elif direction == 'down':
+            self.ai_dx, self.ai_dy = 0, self.ai_speed
+        elif direction == 'left':
+            self.ai_dx, self.ai_dy = -self.ai_speed, 0
+        elif direction == 'right':
+            self.ai_dx, self.ai_dy = self.ai_speed, 0
+    
     def stop_floating(self) -> None:
-        """停止漂浮动画"""
+        """Stop AI movement"""
         if self.float_timer:
             self.float_timer.stop()
             self.float_timer = None
-        if self.original_pos:
-            self.move(self.original_pos)
     
-    def _update_float(self) -> None:
-        """更新漂浮位置"""
-        if self.is_dragging or self.is_dormant:
+    def _update_ai_movement(self) -> None:
+        """Update pet position based on AI movement rules"""
+        import random
+        import math
+        
+        # Don't move if dragging, dormant, or sleeping
+        if self.is_dragging or self.is_dormant or getattr(self, '_is_sleeping', False):
             return
         
-        import math
-        self.float_offset += 0.1
-        offset_y = int(math.sin(self.float_offset) * 5)  # 上下浮动5像素
+        # Get screen bounds
+        screen = QApplication.primaryScreen()
+        if not screen:
+            return
+        geometry = screen.availableGeometry()
         
-        if self.original_pos:
-            self.move(self.original_pos.x(), self.original_pos.y() + offset_y)
+        # Current position
+        current_pos = self.pos()
+        new_x = current_pos.x() + int(self.ai_dx)
+        new_y = current_pos.y() + int(self.ai_dy)
+        
+        # Update flip state based on movement direction
+        # Default sprites face right, so flip when moving left (ai_dx < 0)
+        self._flip_horizontal = self.ai_dx < 0
+        
+        # Species-specific boundary handling
+        if self.pet_id == 'crab':
+            # Crab: stay at bottom, handle falling
+            bottom_y = geometry.height() - self.height()
+            
+            if getattr(self, 'ai_falling', False):
+                # Falling animation (use drag_v)
+                new_y = current_pos.y() + 8  # Fall speed
+                if new_y >= bottom_y:
+                    new_y = bottom_y
+                    self.ai_falling = False
+                    self.set_moving(True)  # Resume swim animation
+            else:
+                # Keep at bottom
+                new_y = bottom_y
+                
+                # Horizontal boundary check
+                if new_x <= 0 or new_x >= geometry.width() - self.width():
+                    self.ai_dx = -self.ai_dx  # Reverse direction
+                    new_x = max(0, min(new_x, geometry.width() - self.width()))
+        
+        elif self.pet_id == 'jelly':
+            # Jellyfish: bounce off edges at 45 degrees
+            if new_x <= 0 or new_x >= geometry.width() - self.width():
+                self.ai_dx = -self.ai_dx
+                new_x = max(0, min(new_x, geometry.width() - self.width()))
+            if new_y <= 0 or new_y >= geometry.height() - self.height():
+                self.ai_dy = -self.ai_dy
+                new_y = max(0, min(new_y, geometry.height() - self.height()))
+        
+        elif self.pet_id == 'starfish':
+            # Starfish: bounce and change to perpendicular direction
+            hit_boundary = False
+            if new_x <= 0 or new_x >= geometry.width() - self.width():
+                new_x = max(0, min(new_x, geometry.width() - self.width()))
+                hit_boundary = True
+                # Change to vertical direction
+                self._set_starfish_direction(random.choice(['up', 'down']))
+            if new_y <= 0 or new_y >= geometry.height() - self.height():
+                new_y = max(0, min(new_y, geometry.height() - self.height()))
+                hit_boundary = True
+                # Change to horizontal direction
+                self._set_starfish_direction(random.choice(['left', 'right']))
+        
+        else:
+            # Puffer and Ray: bounce off all edges
+            if new_x <= 0 or new_x >= geometry.width() - self.width():
+                self.ai_dx = -self.ai_dx
+                new_x = max(0, min(new_x, geometry.width() - self.width()))
+            if new_y <= 0 or new_y >= geometry.height() - self.height():
+                self.ai_dy = -self.ai_dy
+                new_y = max(0, min(new_y, geometry.height() - self.height()))
+        
+        # Move to new position
+        self.move(new_x, new_y)
+        
+        # V11: Randomly change direction or sleep periodically
+        self.ai_change_timer -= 1
+        if self.ai_change_timer <= 0:
+            # V11: 15% chance to sleep, 85% chance to change direction
+            if random.random() < 0.15 and not getattr(self, '_is_sleeping', False):
+                self._start_random_sleep()
+            elif self.pet_id != 'crab':  # Crab only moves horizontally
+                self._change_ai_direction()
+            self.ai_change_timer = random.randint(50, 150)
+    
+    def _change_ai_direction(self) -> None:
+        """Change AI movement direction based on species"""
+        import random
+        import math
+        
+        if self.pet_id == 'jelly':
+            # Jellyfish: pick new 45 degree angle
+            angle = random.choice([math.pi/4, 3*math.pi/4, 5*math.pi/4, 7*math.pi/4])
+            self.ai_dx = math.cos(angle) * self.ai_speed
+            self.ai_dy = math.sin(angle) * self.ai_speed
+        elif self.pet_id == 'starfish':
+            # Starfish: pick new cardinal direction
+            direction = random.choice(['up', 'down', 'left', 'right'])
+            self._set_starfish_direction(direction)
+        else:
+            # Puffer and Ray: random angle
+            angle = random.uniform(0, 2 * math.pi)
+            self.ai_dx = math.cos(angle) * self.ai_speed
+            self.ai_dy = math.sin(angle) * self.ai_speed
+    
+    def start_crab_falling(self) -> None:
+        """Start crab falling animation when dragged and released"""
+        if self.pet_id == 'crab':
+            self.ai_falling = True
+            # Switch to drag_v animation for falling
+            stage = self.growth_manager.get_image_stage(self.pet_id)
+            self._switch_animation('drag_v', stage)
+    
+    def _start_random_sleep(self) -> None:
+        """V12: Start random sleep behavior during AI movement."""
+        # Mark as sleeping
+        self._is_sleeping = True
+        
+        # Stop movement temporarily
+        self.ai_dx = 0
+        self.ai_dy = 0
+        
+        # V12: Set is_moving to False to sync with animation state
+        self.is_moving = False
+        
+        # Switch to appropriate sleep animation based on stage
+        stage = self.growth_manager.get_image_stage(self.pet_id)
+        state = self.growth_manager.get_state(self.pet_id)
+        
+        if state == 1:  # Baby
+            self._switch_animation('baby_sleep', stage)
+        else:  # Adult
+            self._switch_animation('sleep', stage)
+        
+        # Sleep for 2-4 seconds, then resume movement
+        sleep_duration = random.randint(2000, 4000)
+        QTimer.singleShot(sleep_duration, self._resume_movement)
+    
+    def _resume_movement(self) -> None:
+        """V12: Resume movement after random sleep."""
+        self._is_sleeping = False
+        
+        # V12: Set is_moving to True to sync with animation state
+        self.is_moving = True
+        
+        # Reinitialize movement direction
+        self._change_ai_direction()
+        
+        # Switch back to appropriate swim animation
+        stage = self.growth_manager.get_image_stage(self.pet_id)
+        state = self.growth_manager.get_state(self.pet_id)
+        
+        if state == 1:  # Baby
+            self._switch_animation('baby_swim', stage)
+        else:  # Adult
+            self._switch_animation('swim', stage)
     
     def set_moving(self, moving: bool) -> None:
         """
@@ -1622,76 +1868,59 @@ class PetWidget(QWidget):
         # 开始抖动动画
         self._start_shake_animation()
         
-        # 5秒后恢复
+        # 1 second angry animation then calm down
         self.anger_timer = QTimer()
         self.anger_timer.timeout.connect(self.calm_down)
         self.anger_timer.setSingleShot(True)
-        self.anger_timer.start(5000)
+        self.anger_timer.start(1000)
     
     def _reload_with_anger_color(self) -> None:
         """
-        重新加载图像，使用愤怒动画 (Requirements 4.3)
+        V12: Switch to angry animation (Requirements 4.3)
         
-        V9: 加载 angry 动作的序列帧动画
-        - 尝试加载 assets/{pet_id}/angry/{pet_id}_angry_{0-3}.png
-        - 失败时回退到红色几何占位符
+        Load angry animation frames and set correct window size including bubble space.
         """
         stage = self.growth_manager.get_image_stage(self.pet_id)
         target_size = PetRenderer.calculate_size(self.pet_id, stage)
         
-        # V9: 尝试加载 angry 动画帧 (Requirements 4.3)
+        # V12: Load angry animation frames
         frames = PetLoader.load_action_frames(self.pet_id, 'angry')
         
-        # 检查是否成功加载了真实的 angry 动画（非占位符）
-        has_real_frames = False
+        # Scale frames to correct size
+        scaled_frames = []
         for frame in frames:
             if frame and not frame.isNull():
-                # 检查是否是真实图像（非占位符）
-                angry_path = PetLoader.get_frame_path(self.pet_id, 'angry', 0)
-                if os.path.exists(angry_path) and os.path.getsize(angry_path) > 0:
-                    has_real_frames = True
-                    break
-        
-        if has_real_frames:
-            # 缩放帧到正确尺寸
-            scaled_frames = []
-            for frame in frames:
-                if frame and not frame.isNull():
-                    scaled_frame = PetRenderer.scale_frame(frame, target_size)
-                    scaled_frames.append(scaled_frame)
-                else:
-                    # 使用红色占位符作为回退
-                    placeholder = PetRenderer.draw_placeholder_colored(
-                        self.pet_id, target_size, '#FF0000'
-                    )
-                    scaled_frames.append(placeholder)
-            
-            # 更新动画器使用 angry 帧
-            if self.frame_animator is None:
-                self.frame_animator = FrameAnimator(scaled_frames)
-                self.frame_animator.set_on_frame_changed(self._on_frame_changed)
+                scaled_frame = PetRenderer.scale_frame(frame, target_size)
+                scaled_frames.append(scaled_frame)
             else:
-                self.frame_animator.set_frames(scaled_frames)
-            
-            # 启动动画（使用正常帧率）
-            self.frame_animator.start(FrameAnimator.NORMAL_FPS)
-            self.current_action = 'angry'
-            
-            # 获取当前帧
-            self.current_pixmap = self.frame_animator.get_current_frame()
-        else:
-            # 回退到红色几何占位符
-            if self.pet_id in V7_PETS:
-                self.current_pixmap = PetRenderer.draw_placeholder_colored(
+                # Use red placeholder as fallback
+                placeholder = PetRenderer.draw_placeholder_colored(
                     self.pet_id, target_size, '#FF0000'
                 )
-            else:
-                # Legacy pets - apply red tint
-                self.current_pixmap = self._load_image(stage)
-                self.current_pixmap = self._apply_red_tint(self.current_pixmap)
+                scaled_frames.append(placeholder)
         
+        # Update animator
+        if self.frame_animator is None:
+            self.frame_animator = FrameAnimator(scaled_frames)
+            self.frame_animator.set_on_frame_changed(self._on_frame_changed)
+        else:
+            self.frame_animator.set_frames(scaled_frames)
+        
+        # Start animation
+        self.frame_animator.start(FrameAnimator.NORMAL_FPS)
+        self.current_action = 'angry'
+        
+        # Get current frame
+        self.current_pixmap = self.frame_animator.get_current_frame()
+        
+        # V12: Set correct window size including bubble space
         if self.current_pixmap:
-            self.setFixedSize(self.current_pixmap.size())
+            bubble_height = 40
+            new_width = self.current_pixmap.width()
+            new_height = self.current_pixmap.height() + bubble_height
+            self.setFixedSize(new_width, new_height)
+            self._pet_draw_offset_y = bubble_height
+        
         self.update()
     
     def _apply_red_tint(self, pixmap: QPixmap) -> QPixmap:
@@ -1710,9 +1939,10 @@ class PetWidget(QWidget):
     
     def _start_shake_animation(self) -> None:
         """
-        开始抖动动画 (Requirements 1.3)
+        V14: 开始抖动动画 (Requirements 1.3)
         
-        QTimer at 50ms interval, random x offset ±10px
+        QTimer at 125ms interval (synced with frame animation at 8fps)
+        Random x offset ±10px
         """
         def shake():
             if not self.is_angry:
@@ -1727,101 +1957,154 @@ class PetWidget(QWidget):
         
         self.shake_timer = QTimer()
         self.shake_timer.timeout.connect(shake)
-        self.shake_timer.start(50)  # 50ms 抖动一次
+        # V14: Sync with frame animation (8fps = 125ms per frame)
+        self.shake_timer.start(125)
     
     def calm_down(self) -> None:
-        """
-        恢复正常状态 (Requirements 1.4, 1.5)
-        
-        - 重置 is_angry
-        - 停止计时器
-        - 恢复位置和颜色
-        """
+        """Reset from angry state and return to swim animation."""
         self.is_angry = False
         self.click_times.clear()
         
-        # 停止抖动计时器
+        # Stop timers
         if self.shake_timer:
             self.shake_timer.stop()
             self.shake_timer = None
         
-        # 停止愤怒计时器
         if self.anger_timer:
             self.anger_timer.stop()
             self.anger_timer = None
         
-        # 恢复位置
+        # Restore position
         if self.anger_original_pos:
             self.move(self.anger_original_pos)
             self.anger_original_pos = None
         
-        # 恢复原色 - 重新加载图像
+        # Force switch back to swim animation
+        self.current_action = ''  # Reset to force animation switch
+        self.is_moving = True
         self.refresh_display()
     
     # ========== V8 引导气泡系统 ==========
     
     def get_tutorial_text(self) -> str:
         """
-        V8: 获取当前应显示的引导文字 (Requirements 4.1, 4.2, 4.3)
+        V11: Get current guidance text with progression system.
+        
+        Show different guidance based on pet state and progression:
+        - Step 0: "Right-click me!" (dormant state)
+        - Step 1: "Try dragging me!" (just awakened)
+        - Step 2: "Complete tasks to help me grow!" (after drag hint)
+        - Step 3: "Click me 5 times quickly!" (when adult)
         
         Returns:
-            - "右键点击我！(Right Click Me!)" for dormant state
-            - "试试拖拽我！(Try Dragging!)" for just_awakened state
-            - "连点5下有惊喜！(Click 5x for Anger!)" for idle hint
-            - Empty string otherwise
+            Guidance text string or empty string
         """
+        current_state = self.growth_manager.get_state(self.pet_id)
+        
+        # Step 0: Dormant state - show right-click hint
         if self.is_dormant:
-            return TUTORIAL_BUBBLES["dormant"]
-        elif self.just_awakened:
-            return TUTORIAL_BUBBLES["just_awakened"]
-        elif self.show_idle_hint:
+            return "Right-click me!"
+        
+        # Step 1: Just awakened - show drag hint
+        if self.just_awakened:
+            return "Try dragging me!"
+        
+        # Step 2: Baby state - show task hint (only once)
+        if current_state == 1 and 'task_hint' not in self.guidance_shown:
+            self.guidance_shown.add('task_hint')
+            # Auto-hide after 8 seconds
+            QTimer.singleShot(8000, self._clear_task_hint)
+            return "Complete tasks to help me grow!"
+        
+        # Step 3: Adult state - show click hint (only once)
+        if current_state == 2 and 'click_hint' not in self.guidance_shown:
+            self.guidance_shown.add('click_hint')
+            # Auto-hide after 8 seconds
+            QTimer.singleShot(8000, self._clear_click_hint)
+            return "Click me 5 times quickly!"
+        
+        # Show idle hint if enabled
+        if self.show_idle_hint:
             return TUTORIAL_BUBBLES["idle_hint"]
+        
         return ""
     
-    def _draw_tutorial_bubble(self, painter: QPainter, text: str) -> None:
+    def _clear_task_hint(self) -> None:
+        """V11: Clear task hint after timeout."""
+        self.update()
+    
+    def _clear_click_hint(self) -> None:
+        """V11: Clear click hint after timeout."""
+        self.update()
+    
+    def _start_adult_guidance(self) -> None:
         """
-        V8: 绘制引导文字气泡 (Requirements 4.4, 4.5)
+        V13: Start adult guidance - show drag and click hints when becoming adult.
         
-        - 位置：宠物头顶上方
-        - 背景：半透明黑色圆角矩形 (rgba 0,0,0,180)
-        - 文字：黄色 (#FFFF00) + 黑色描边 (4 offset draws)
+        This triggers the guidance progression for adult pets:
+        - First shows "Try dragging me!" for 10 seconds
+        - Then shows "Click me 5 times quickly!" for 8 seconds
+        """
+        # Reset guidance shown to allow adult hints to display
+        self.guidance_shown.discard('click_hint')
+        
+        # Set just_awakened to show drag hint first
+        self.just_awakened = True
+        self.update()
+        
+        # After 10 seconds, clear drag hint and trigger click hint
+        def show_click_hint():
+            self.just_awakened = False
+            # The click_hint will be shown by get_tutorial_text() since we removed it from guidance_shown
+            self.update()
+        
+        QTimer.singleShot(10000, show_click_hint)
+    
+    def _draw_tutorial_bubble(self, painter: QPainter, text: str, pet_offset_y: int = 0) -> None:
+        """
+        V8: Draw tutorial bubble above pet (Requirements 4.4, 4.5)
+        
+        - Position: Above pet's head (in the reserved space)
+        - Background: Semi-transparent black rounded rect (rgba 0,0,0,180)
+        - Text: Yellow (#FFFF00) with black outline (4 offset draws)
         
         Args:
-            painter: QPainter 实例
-            text: 要显示的文字
+            painter: QPainter instance
+            text: Text to display
+            pet_offset_y: Y offset where pet image starts
         """
         font = QFont("Arial", 10, QFont.Weight.Bold)
         painter.setFont(font)
         
-        # 计算文字尺寸
+        # Calculate text dimensions
         fm = painter.fontMetrics()
         lines = text.split('\n')
         text_width = max(fm.horizontalAdvance(line) for line in lines)
         text_height = fm.height() * len(lines)
         
-        # 气泡位置（宠物上方）
-        bubble_padding = 8
+        # Bubble position (in the reserved space above pet)
+        bubble_padding = 6
         bubble_width = text_width + bubble_padding * 2
         bubble_height = text_height + bubble_padding * 2
         bubble_x = (self.width() - bubble_width) // 2
-        bubble_y = -bubble_height - 5  # 宠物上方
+        bubble_y = max(2, (pet_offset_y - bubble_height) // 2)  # Center in reserved space
         
-        # 绘制半透明黑色背景 (Requirements 4.5)
+        # Draw semi-transparent black background (Requirements 4.5)
         painter.setBrush(QColor(0, 0, 0, TUTORIAL_CONFIG["bg_alpha"]))
         painter.setPen(Qt.PenStyle.NoPen)
         painter.drawRoundedRect(bubble_x, bubble_y, bubble_width, bubble_height, 5, 5)
         
-        # 文字起始位置
+        # Text start position
         text_x = bubble_x + bubble_padding
         text_y = bubble_y + bubble_padding + fm.ascent()
         
-        # 绘制文字描边（黑色，4个方向偏移）(Requirements 4.4)
+        # Draw text outline (black, 4 direction offsets) (Requirements 4.4)
         painter.setPen(QColor(TUTORIAL_CONFIG["outline_color"]))
         for dx, dy in [(-1, -1), (-1, 1), (1, -1), (1, 1)]:
             for i, line in enumerate(lines):
                 painter.drawText(text_x + dx, text_y + i * fm.height() + dy, line)
         
-        # 绘制文字（黄色）(Requirements 4.4)
+        # Draw text (yellow) (Requirements 4.4)
         painter.setPen(QColor(TUTORIAL_CONFIG["text_color"]))
         for i, line in enumerate(lines):
             painter.drawText(text_x, text_y + i * fm.height(), line)
@@ -1843,11 +2126,19 @@ class PetWidget(QWidget):
             painter = QPainter(self)
             painter.setRenderHint(QPainter.RenderHint.Antialiasing)
             
+            # Get pet draw offset (for bubble space)
+            offset_y = getattr(self, '_pet_draw_offset_y', 0)
+            
+            # V8: Draw tutorial bubble first (at top of widget)
+            tutorial_text = self.get_tutorial_text()
+            if tutorial_text:
+                self._draw_tutorial_bubble(painter, tutorial_text, offset_y)
+            
             # V7.1: 应用挤压变换 (Requirements 2.1)
             if self.squash_factor != 1.0:
                 # 计算中心点
                 cx = self.width() / 2
-                cy = self.height() / 2
+                cy = offset_y + self.current_pixmap.height() / 2
                 
                 # 移动到中心，应用缩放，再移回
                 painter.translate(cx, cy)
@@ -1855,14 +2146,14 @@ class PetWidget(QWidget):
                 painter.scale(self.squash_factor, 2.0 - self.squash_factor)
                 painter.translate(-cx, -cy)
             
-            painter.drawPixmap(0, 0, self.current_pixmap)
+            # V10: Apply horizontal flip when moving left
+            pixmap_to_draw = self.current_pixmap
+            if getattr(self, '_flip_horizontal', False):
+                # Flip the pixmap horizontally
+                pixmap_to_draw = FlipTransform.apply_horizontal_flip(self.current_pixmap)
             
-            # V8: 绘制引导气泡 (Requirements 4.1, 4.2, 4.3)
-            # 重置变换以正确绘制气泡
-            painter.resetTransform()
-            tutorial_text = self.get_tutorial_text()
-            if tutorial_text:
-                self._draw_tutorial_bubble(painter, tutorial_text)
+            # Draw pet image at offset position
+            painter.drawPixmap(0, offset_y, pixmap_to_draw)
             
             painter.end()
     
@@ -1890,22 +2181,25 @@ class PetWidget(QWidget):
             if self.is_dormant:
                 return
             
-            # V9: Stage 1 (Baby) 禁止左键点击 (Requirements 3.3)
-            # 幼年期宠物不响应点击，但可以自主移动
             current_state = self.growth_manager.get_state(self.pet_id)
+            
+            # V11: 愤怒机制点击追踪 - Adult状态(state==2)才能触发
+            # Baby状态(state==1)不响应点击，但Adult可以
+            if current_state == 2:  # Stage 2 = Adult
+                current_time = time.time()
+                self.click_times.append(current_time)
+                
+                # 保留最近2秒内的点击
+                self.click_times = [t for t in self.click_times if current_time - t <= 2.0]
+                
+                # 检查是否触发愤怒 (5次点击在2秒内)
+                if len(self.click_times) >= 5 and not self.is_angry:
+                    self.trigger_anger()
+                    return  # Don't start dragging when angry
+            
+            # V9: Stage 1 (Baby) 禁止拖拽 (Requirements 3.3)
             if current_state == 1:  # Stage 1 = Baby
                 return
-            
-            # V7.1: 愤怒机制点击追踪（仅非休眠状态）
-            current_time = time.time()
-            self.click_times.append(current_time)
-            
-            # 保留最近2秒内的点击
-            self.click_times = [t for t in self.click_times if current_time - t <= 2.0]
-            
-            # 检查是否触发愤怒 (5次点击在2秒内)
-            if len(self.click_times) >= 5 and not self.is_angry:
-                self.trigger_anger()
             
             self.is_dragging = True
             self.drag_offset = event.pos()
@@ -2075,19 +2369,30 @@ class PetWidget(QWidget):
             self.frame_animator.set_frames(scaled_frames)
     
     def mouseReleaseEvent(self, event: QMouseEvent) -> None:
-        """鼠标释放事件
-        
-        V7.1: 释放时触发拉伸恢复动画 (Requirements 2.3)
-        V9: 停止移动状态以切换回静止动画 (Requirements 7.3)
-        """
+        """Handle mouse release - end drag and return to swim animation."""
         if event.button() == Qt.MouseButton.LeftButton:
             self.is_dragging = False
             self.last_drag_pos = None
             
-            # V9: 停止移动状态以切换回静止动画 (Requirements 7.3)
-            self.set_moving(False)
+            # Crab falls to bottom when released
+            if self.pet_id == 'crab':
+                screen = QApplication.primaryScreen()
+                if screen:
+                    geometry = screen.availableGeometry()
+                    bottom_y = geometry.height() - self.height()
+                    if self.pos().y() < bottom_y - 10:
+                        self.start_crab_falling()
+                        return
             
-            # V7.1: 触发拉伸恢复动画 (Requirements 2.3)
+            # Return to swim animation for adult pets
+            current_state = self.growth_manager.get_state(self.pet_id)
+            if current_state == 2:  # Adult
+                # Force switch back to swim animation
+                self.current_action = ''  # Reset to force animation switch
+                self.is_moving = True
+                self.refresh_display()
+            
+            # Animate stretch recovery
             if self.squash_factor < 1.0:
                 self._animate_stretch_back()
     

@@ -1,13 +1,13 @@
 {
   "pets": {
     "puffer": {
-      "state": 2,
-      "tasks_progress": 3
+      "state": 0,
+      "tasks_progress": 0
     }
   },
   "settings": {
     "auto_time_sync": true,
-    "theme_mode": "halloween"
+    "theme_mode": "normal"
   },
   "unlocked_pets": [
     "puffer"
@@ -15,7 +15,7 @@
   "active_pets": [
     "puffer"
   ],
-  "cumulative_tasks": 2,
+  "cumulative_tasks": 0,
   "custom_task_texts": [],
-  "last_saved": "2025-12-05T21:53:29.315227"
+  "last_saved": "2025-12-06T03:30:00.000000"
 }
