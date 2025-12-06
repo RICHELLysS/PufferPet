@@ -74,9 +74,11 @@ data.json
 Thumbs.db
 desktop.ini
 
-# Build artifacts
+# Build artifacts (large files, don't upload to GitHub)
 build/
 dist/
+*.exe
+*.pkg
 
 # Keep these files
 !requirements.txt
