@@ -7,9 +7,9 @@ A simple desktop pet application built with PyQt6. Complete daily tasks to grow 
 ## Features
 
 ### Core Gameplay
-- 🐡 **5 Collectible Pets**: Puffer, Jelly, Crab, Starfish, Ray
+- 🐡 **5 Collectible Pets**: Puffer, Jelly, Crab, Starfish, Ray(special)
 - 📈 **Growth System**: Dormant → Baby → Adult (complete tasks to evolve)
-- 🎁 **Gacha System**: Get new pets when your pet reaches adult stage
+- 🎁 **Blindbox System**: Get new pets when your pet reaches adult stage
 - 🌓 **Day/Night Mode**: Manual toggle between light and dark themes
 
 ### Interactions
